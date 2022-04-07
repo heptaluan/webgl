@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>震泽</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <script>
+      loopy()
+      function loopy() {
+        var sWord = ''
+        while (sWord !== '45678') {
+          sWord = prompt('输入正确密码才能访问!')
+          if (sWord === null || sWord === '') {
+            alert('密码错误!')
+            window.location.href = '../../webgl.html'
+            break
+          }
+        }
+      }
+    </script>
+  </head>
+  <body class="indexback">
+    <div id="container"></div>
+
+    <div id="loadinginfo"></div>
+
+    <div id="dstips" class="phide"></div>
+
+    <div id="btnwarp">
+      <div id="btn_reset" title="恢复视角">
+        <svg><use xlink:href="imgs/vicons.svg#resetview"></use></svg>
+      </div>
+      <div id="btn_autorotate" title="自动旋转">
+        <svg><use xlink:href="imgs/vicons.svg#autorotate"></use></svg>
+      </div>
+      <div id="btn_fullscreen" title="全屏">
+        <svg><use xlink:href="imgs/vicons.svg#fullscreen"></use></svg>
+      </div>
+    </div>
+
+    <div id="btn_ds">
+      <svg><use xlink:href="imgs/vicons.svg#control"></use></svg>
+      <span>调水</span>
+    </div>
+
+    <div id="maintitle"></div>
+
+    <div id="mainpanel" class="mainpanel">
+      <div class="fp_title isblue">
+        <svg><use xlink:href="imgs/vicons.svg#water"></use></svg>2#水质监测站
+      </div>
+      <img class="szdata" src="imgs/szdata.png" />
+      <div id="shbtn"></div>
+    </div>
+
+    <div id="mapmarks">
+      <div class="fp dm" dname="北洞里断面">IV</div>
+
+      <div class="fp dm" dname="戴公桥河断面">IV</div>
+
+      <div class="fp dm" dname="荡湾里断面">IV</div>
+
+      <div class="fp dm" dname="分乡桥河断面">IV</div>
+
+      <div class="fp dm" dname="开发区河断面">IV</div>
+
+      <div class="fp dm" dname="快鸭港断面">IV</div>
+
+      <div class="fp dm" dname="梅家坟断面">IV</div>
+
+      <div class="fp dm" dname="钮家埭断面">IV</div>
+
+      <div class="fp dm" dname="庞家埭断面">IV</div>
+
+      <div class="fp dm" dname="石墩浜断面">IV</div>
+
+      <div class="fp dm szbad" dname="孙家坝断面">
+        IV
+        <div class="flasha"></div>
+      </div>
+
+      <div class="fp dm" dname="新开河断面">IV</div>
+
+      <div class="fp dm" dname="杨家湾断面">IV</div>
+
+      <div class="fp dm" dname="姚家浜断面">IV</div>
+
+      <div class="fp dm" dname="张千坝断面">IV</div>
+
+      <div class="fp dm" dname="张善坝断面">IV</div>
+
+      <div class="fp" dname="1#窨井" dlink="yj.html">
+        <div class="fp_title iscyan">
+          <svg><use xlink:href="imgs/vicons.svg#well"></use></svg>1#窨井
+        </div>
+        <table class="fp_content">
+          <tr>
+            <th>液位</th>
+            <td>2.3<b>m</b></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="fp" dname="2#窨井" dlink="yj.html">
+        <div class="fp_title iscyan">
+          <svg><use xlink:href="imgs/vicons.svg#well"></use></svg>2#窨井
+        </div>
+        <table class="fp_content">
+          <tr>
+            <th>液位</th>
+            <td>2.3<b>m</b></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="fp" dname="十字漾闸站" dlink="szy.html">
+        <div class="fp_title isgreen">
+          <svg><use xlink:href="imgs/vicons.svg#gate"></use></svg>十字漾闸站
+        </div>
+      </div>
+
+      <div class="fp" dname="分乡桥闸站" dlink="fxq.html">
+        <div class="fp_title isgreen">
+          <svg><use xlink:href="imgs/vicons.svg#gate"></use></svg>分乡桥闸站
+        </div>
+        <table class="fp_content">
+          <tr>
+            <th>当前状态</th>
+            <td>停止</td>
+          </tr>
+          <tr>
+            <th>闸门开度</th>
+            <td>2.3<b>m</b></td>
+          </tr>
+          <tr>
+            <th>当前流量</th>
+            <td>12.3<b>m³/s</b></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="fp" dname="乌泥坝闸站" dlink="wnb.html">
+        <div class="fp_title isgreen">
+          <svg><use xlink:href="imgs/vicons.svg#gate"></use></svg>乌泥坝闸站
+        </div>
+        <table class="fp_content">
+          <tr>
+            <th>当前状态</th>
+            <td>停止</td>
+          </tr>
+          <tr>
+            <th>闸门开度</th>
+            <td>2.3<b>m</b></td>
+          </tr>
+          <tr>
+            <th>当前流量</th>
+            <td>12.3<b>m³/s</b></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="fp" dname="镇西泵站" dlink="zx.html">
+        <div class="fp_title isgreen">
+          <svg><use xlink:href="imgs/vicons.svg#pump"></use></svg>镇西泵站
+        </div>
+        <table class="fp_content">
+          <tr>
+            <th>瞬时流量</th>
+            <td>12.3<b>m³/s</b></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="fp" dname="2#水质监测站" dlink="sz2.html">
+        <div class="fp_title isblue">
+          <svg><use xlink:href="imgs/vicons.svg#water"></use></svg>2#水质监测站
+        </div>
+        <table class="fp_content">
+          <tr>
+            <td colspan="2">石墩浜</td>
+          </tr>
+          <tr>
+            <th>PH</th>
+            <td>7</td>
+          </tr>
+          <tr class="dred">
+            <th>溶解氧</th>
+            <td>12.3<b>mg/L</b></td>
+          </tr>
+          <tr>
+            <th>COD</th>
+            <td>12.3<b>mg/L</b></td>
+          </tr>
+          <tr>
+            <th>氨氮</th>
+            <td>12.3<b>mg/L</b></td>
+          </tr>
+        </table>
+        <div class="flasha"></div>
+      </div>
+
+      <div class="fp dd" dname="1#水质监测站" dlink="sz1.html">
+        <div class="fp_title isblue">
+          <svg><use xlink:href="imgs/vicons.svg#water"></use></svg>1#水质监测站
+        </div>
+        <table class="fp_content">
+          <tr>
+            <td colspan="2">快鸭港</td>
+          </tr>
+          <tr>
+            <th>PH</th>
+            <td>7</td>
+          </tr>
+          <tr>
+            <th>溶解氧</th>
+            <td>12.3<b>mg/L</b></td>
+          </tr>
+          <tr>
+            <th>COD</th>
+            <td>12.3<b>mg/L</b></td>
+          </tr>
+          <tr>
+            <th>氨氮</th>
+            <td>12.3<b>mg/L</b></td>
+          </tr>
+        </table>
+        <table class="fp_content">
+          <tr>
+            <td colspan="2">十字漾</td>
+          </tr>
+          <tr>
+            <th>PH</th>
+            <td>7</td>
+          </tr>
+          <tr>
+            <th>溶解氧</th>
+            <td>12.3<b>mg/L</b></td>
+          </tr>
+          <tr>
+            <th>COD</th>
+            <td>12.3<b>mg/L</b></td>
+          </tr>
+          <tr>
+            <th>氨氮</th>
+            <td>12.3<b>mg/L</b></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div id="flashc"></div>
+
+    <div id="rightpanel" class="rightpanel phide">
+      <div id="rptitle"></div>
+      <div id="rpclose" class="rpclose">
+        <svg><use xlink:href="imgs/vicons.svg#close"></use></svg>
+      </div>
+      <iframe id="webbox"></iframe>
+    </div>
+
+    <script src="js/webgl/three.min.js"></script>
+    <script src="js/webgl/Detector.js"></script>
+    <script src="js/webgl/OrbitControls.js"></script>
+    <script src="js/webgl/OBJLoader.js"></script>
+    <script src="js/webgl/MTLLoader.js"></script>
+    <script src="js/webgl/tween.min.js"></script>
+    <script src="js/webgl/WaterShader.js"></script>
+    <script src="js/run.js"></script>
+  </body>
+</html>
