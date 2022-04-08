@@ -1,0 +1,240 @@
+@charset "utf-8";
+
+:root {
+  --mtc: #12a3ff;
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Microsoft YaHei', 微软雅黑;
+  font-size: 12px;
+  margin: 0;
+  overflow: hidden;
+  height: 100%;
+  background: linear-gradient(#024087, #0e172d);
+}
+
+#container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+#loadinginfo {
+  width: 300px;
+  height: 40px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -20px 0 0 -150px;
+  color: #fff;
+  border-radius: 5px;
+  background: rgba(23, 35, 52, 0.7);
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 38px;
+}
+
+.ftbox {
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.ftbox div {
+  width: auto;
+  position: absolute;
+  padding: 5px;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  border: rgba(255, 255, 255, 0.7) solid 1px;
+  font-size: 13px;
+  user-select: none;
+  pointer-events: none;
+  display: none;
+}
+
+.ftbox div::after {
+  display: block;
+  position: absolute;
+  content: '▼';
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 10px;
+  width: 10px;
+  height: 10px;
+  bottom: -5px;
+  left: calc(50% - 5px);
+}
+
+.ftbox div strong {
+  background: #0369d2;
+  font-size: 15px;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  height: 20px;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.ftbox div table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.ftbox div table tr {
+  border-bottom: #000000 solid 1px;
+}
+
+.ftbox div table tr th {
+  padding: 0 5px;
+  text-align: center;
+  height: 26px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.ftbox div table tr td {
+  padding: 0 5px;
+  text-align: center;
+  height: 26px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.ftbox div span {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin: 2px 0 0 0;
+}
+
+#rbtn {
+  width: 80px;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  cursor: pointer;
+  color: #ffffff;
+  pointer-events: auto;
+  left: 0;
+  top: 10px;
+}
+
+#rbtn::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-right: 50px solid transparent;
+  border-top: 60px solid rgba(0, 0, 0, 0.6);
+  top: 0;
+  right: -50px;
+}
+
+#rbtn span {
+  display: block;
+  width: 70px;
+  height: 60px;
+  background: #1a50c8;
+  position: absolute;
+  left: 0;
+  top: -6px;
+}
+
+#rbtn span::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-right: 50px solid transparent;
+  border-top: 60px solid #1a50c8;
+  top: 0;
+  right: -50px;
+  z-index: 6;
+}
+
+#rbtn span svg {
+  width: 50px;
+  height: 50px;
+  fill: currentColor;
+  position: absolute;
+  left: 13px;
+  top: 2px;
+}
+
+#rbtn:hover {
+  background: rgba(0, 162, 255, 0.35);
+}
+#rbtn:hover::after {
+  border-top: 60px solid rgba(0, 162, 255, 0.35);
+}
+#rbtn:hover span {
+  background: #00a2ff;
+}
+#rbtn:hover span::after {
+  border-top: 60px solid #00a2ff;
+}
+
+.infobar {
+  position: absolute;
+  width: 400px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  top: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.infobar .ibtitle {
+  font-weight: bold;
+  font-size: 20px;
+  color: #ffffff;
+  width: 100%;
+  height: 36px;
+  line-height: 34px;
+  text-align: center;
+  background: linear-gradient(to right, rgba(56, 126, 255, 0), rgba(56, 126, 255, 1), rgba(56, 126, 255, 0));
+}
+
+.infobar .datapage {
+  position: absolute;
+  width: 390px;
+  top: 41px;
+  height: calc(100% - 47px);
+  left: 5px;
+  border: 0;
+}
+
+#switch {
+  background: rgba(0, 0, 0, 0.5);
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+  position: absolute;
+  z-index: 88;
+  left: 20px;
+  bottom: 20px;
+  color: #555555;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#switch li {
+  margin: 5px 0;
+}
