@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>某学校-三维总览</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <script src="js/webgl/three.min.js"></script>
+    <script src="js/webgl/OrbitControls.js"></script>
+    <script src="js/webgl/OBJLoader.js"></script>
+    <script src="js/webgl/MTLLoader.js"></script>
+    <script src="js/webgl/Detector.js"></script>
+    <script src="js/webgl/tween.min.js"></script>
+    <script>
+      loopy()
+      function loopy() {
+        var sWord = ''
+        while (sWord !== '45678') {
+          sWord = prompt('输入正确密码才能访问!')
+          if (sWord === null || sWord === '') {
+            alert('密码错误!')
+            window.location.href = '../../webgl.html'
+            break
+          }
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="cwarp">
+      <div id="main3d"></div>
+      <div id="main3d_mask">
+        <div id="yun"></div>
+      </div>
+      <div id="ptopbar">
+        <img src="imgs/plogo.png" class="plogo" />
+      </div>
+
+      <div id="loadinginfo"></div>
+
+      <div id="floatinfo"><span></span><br />点击查看详情</div>
+
+      <ul id="pipes">
+        <li><input type="checkbox" checked="checked" /><span></span><b>低位生活供水管(东部)</b></li>
+        <li><input type="checkbox" checked="checked" /><span></span><b>低位生活供水管(整改后)</b></li>
+        <li><input type="checkbox" checked="checked" /><span></span><b>室外消火栓供水管</b></li>
+        <li><input type="checkbox" checked="checked" /><span></span><b>室内消火栓供水管</b></li>
+        <li><input type="checkbox" checked="checked" /><span></span><b>西部校区(1)供水管</b></li>
+        <li><input type="checkbox" checked="checked" /><span></span><b>西部校区(2)供水管</b></li>
+        <li><input type="checkbox" checked="checked" /><span></span><b>学院公寓供水管</b></li>
+        <li><input type="checkbox" checked="checked" /><span></span><b>80吨水箱供水管</b></li>
+        <li><input type="checkbox" checked="checked" /><span></span><b>高位生活供水管</b></li>
+      </ul>
+
+      <div id="buwarp">
+        <div class="fmask1"></div>
+        <div class="fmask2"></div>
+        <div class="fmask3"></div>
+        <div class="fmask4"></div>
+        <div id="buinfo">
+          <div class="tb"></div>
+          <div class="bb"></div>
+          <div class="lb"></div>
+          <div id="bucon">
+            <div id="butitle"></div>
+            <div
+              style="
+                position: absolute;
+                top: 60px;
+                left: 10px;
+                right: 10px;
+                bottom: 20px;
+                background: url('imgs/temp6.jpg') no-repeat;
+                background-position: center;
+              "
+            ></div>
+          </div>
+          <div id="bumoving">
+            <span><img src="imgs/buicon.png" /><br />建筑切换中</span>
+          </div>
+          <div class="bubtnwarp">
+            <div id="btn_buprev" class="gbtn" title="上一栋建筑">
+              <svg><use xlink:href="imgs/vicons.svg#arrow_l"></use></svg>
+            </div>
+            <div id="btn_bunext" class="gbtn" title="下一栋建筑">
+              <svg><use xlink:href="imgs/vicons.svg#arrow_r"></use></svg>
+            </div>
+          </div>
+          <div class="btnclose" id="buclose" title="关闭窗口">
+            <svg><use xlink:href="imgs/vicons.svg#close"></use></svg>
+          </div>
+        </div>
+      </div>
+
+      <div id="meterinfo">
+        <div class="mtitle">
+          <span></span>
+          <div class="btnclose" id="mclose" title="关闭窗口">
+            <svg><use xlink:href="imgs/vicons.svg#close"></use></svg>
+          </div>
+        </div>
+        <img src="imgs/temp7.jpg" style="position: absolute; top: 72px; left: 20px" />
+      </div>
+
+      <div id="btnwarp">
+        <div id="btn_resetview" class="gbtn" title="恢复视角">
+          <svg><use xlink:href="imgs/vicons.svg#resetview"></use></svg>
+        </div>
+        <div id="btn_autorotate" class="gbtn" title="自动旋转">
+          <svg><use xlink:href="imgs/vicons.svg#autorotate"></use></svg>
+        </div>
+      </div>
+
+      <ul id="switchbar">
+        <li class="active">
+          <svg><use xlink:href="imgs/vicons.svg#i_j"></use></svg><br />显示建筑
+        </li>
+        <li>
+          <svg><use xlink:href="imgs/vicons.svg#i_g"></use></svg><br />显示管网
+        </li>
+        <li>
+          <svg><use xlink:href="imgs/vicons.svg#i_d"></use></svg><br />用电量
+        </li>
+        <li>
+          <svg><use xlink:href="imgs/vicons.svg#i_s"></use></svg><br />用水量
+        </li>
+        <li>
+          <svg><use xlink:href="imgs/vicons.svg#i_z"></use></svg><br />用蒸汽量
+        </li>
+        <li>
+          <svg><use xlink:href="imgs/vicons.svg#i_r"></use></svg><br />用燃气量
+        </li>
+      </ul>
+    </div>
+
+    <div id="bottombar">
+      <img src="imgs/temp0.jpg" />
+      <img src="imgs/temp1.jpg" />
+      <img src="imgs/temp2.jpg" />
+      <img src="imgs/temp3.jpg" />
+      <img src="imgs/temp4.jpg" />
+      <img src="imgs/temp5.jpg" />
+    </div>
+
+    <script src="js/run.js"></script>
+  </body>
+</html>

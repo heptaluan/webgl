@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>豪车会-楼宇管理</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+
+  <body class="innerpage">
+    <script src="js/webgl/three.min.js"></script>
+    <script src="js/webgl/TrackballControls.js"></script>
+    <script src="js/webgl/OBJLoader.js"></script>
+    <script src="js/webgl/MTLLoader.js"></script>
+    <script src="js/webgl/Detector.js"></script>
+    <script src="js/webgl/tween.min.js"></script>
+
+    <div id="s3d_a"></div>
+
+    <div id="s3d_a_mask"></div>
+
+    <div id="loadinginfo"></div>
+
+    <table class="topbar">
+      <tr>
+        <td class="left_corner">
+          <span><img src="imgs/icon_menu.png" />显示菜单</span>
+          <a href="index.html"
+            ><span><img src="imgs/icon_return.png" />返回上级</span></a
+          >
+          <a href="index.html"
+            ><span><img src="imgs/icon_home.png" />返回主页</span></a
+          >
+        </td>
+        <td class="fill"></td>
+        <td class="sub_title">空调暖通</td>
+        <td class="fill"></td>
+        <td class="right_corner">
+          <span class="weather"><img src="imgs/icon_weather.png" />17℃</span>
+          <span id="rttime"></span>
+          <span class="usermenu">
+            <select>
+              <option selected>系统管理员</option>
+              <option>注销</option>
+              <option>退出</option>
+            </select>
+            <img src="imgs/icon_user.png" />
+          </span>
+        </td>
+      </tr>
+    </table>
+
+    <div id="fcanvas">
+      <div id="din_0" class="devinfo">
+        <div class="devtitle">1#风冷热泵<span class="fgreen">制冷</span><span>设定温度 25℃</span></div>
+        <div class="devcontent">进水温度<span>43℃</span>进水压力<span>12MPa</span></div>
+        <div class="devcontent">出水温度<span>23℃</span>出水压力<span>13MPa</span></div>
+      </div>
+      <div id="din_1" class="devinfo">
+        <div class="devtitle">2#风冷热泵<span class="fgreen">制冷</span><span>设定温度 25℃</span></div>
+        <div class="devcontent">进水温度<span>43℃</span>进水压力<span>12MPa</span></div>
+        <div class="devcontent">出水温度<span>23℃</span>出水压力<span>13MPa</span></div>
+      </div>
+      <div id="din_2" class="devinfo">
+        <div class="devtitle">1#水泵</div>
+        <div class="devcontent">频率<span>55MHz</span></div>
+        <div class="devcontent">电流<span>2A</span></div>
+        <div class="devcontent">进水压力<span>7Mpa</span></div>
+        <div class="devcontent">出水压力<span>13MPa</span></div>
+      </div>
+      <div id="din_3" class="devinfo">
+        <div class="devtitle">2#水泵</div>
+        <div class="devcontent">频率<span>55MHz</span></div>
+        <div class="devcontent">电流<span>2A</span></div>
+        <div class="devcontent">进水压力<span>7Mpa</span></div>
+        <div class="devcontent">出水压力<span>13MPa</span></div>
+      </div>
+      <div id="din_4" class="devinfo">
+        <div class="devtitle">1#调流阀<span>开</span></div>
+      </div>
+      <div id="din_5" class="devinfo">
+        <div class="devcontent">温度<span>24℃</span></div>
+        <div class="devcontent">压力<span>12Mpa</span></div>
+      </div>
+      <div id="din_6" class="devinfo">
+        <div class="devcontent">温度<span>23℃</span></div>
+        <div class="devcontent">压力<span>11Mpa</span></div>
+      </div>
+      <div id="din_7" class="devinfo">
+        <div class="devcontent">温度<span>33℃</span></div>
+        <div class="devcontent">压力<span>8Mpa</span></div>
+      </div>
+      <div id="din_8" class="devinfo">
+        <div class="devtitle">3#风冷热泵<span class="fgreen">制冷</span><span>设定温度 25℃</span></div>
+        <div class="devcontent">进水温度<span>43℃</span>进水压力<span>12MPa</span></div>
+        <div class="devcontent">出水温度<span>23℃</span>出水压力<span>13MPa</span></div>
+      </div>
+      <div id="din_9" class="devinfo">
+        <div class="devtitle">4#风冷热泵<span class="fgreen">制冷</span><span>设定温度 25℃</span></div>
+        <div class="devcontent">进水温度<span>43℃</span>进水压力<span>12MPa</span></div>
+        <div class="devcontent">出水温度<span>23℃</span>出水压力<span>13MPa</span></div>
+      </div>
+      <div id="din_10" class="devinfo">
+        <div class="devtitle">3#水泵</div>
+        <div class="devcontent">频率<span>55MHz</span></div>
+        <div class="devcontent">电流<span>2A</span></div>
+        <div class="devcontent">进水压力<span>7Mpa</span></div>
+        <div class="devcontent">出水压力<span>13MPa</span></div>
+      </div>
+      <div id="din_11" class="devinfo">
+        <div class="devtitle">4#水泵</div>
+        <div class="devcontent">频率<span>55MHz</span></div>
+        <div class="devcontent">电流<span>2A</span></div>
+        <div class="devcontent">进水压力<span>7Mpa</span></div>
+        <div class="devcontent">出水压力<span>13MPa</span></div>
+      </div>
+      <div id="din_12" class="devinfo">
+        <div class="devtitle">2#调流阀<span>开</span></div>
+      </div>
+      <div id="din_13" class="devinfo">
+        <div class="devcontent">温度<span>24℃</span></div>
+        <div class="devcontent">压力<span>12Mpa</span></div>
+      </div>
+      <div id="din_14" class="devinfo">
+        <div class="devcontent">温度<span>23℃</span></div>
+        <div class="devcontent">压力<span>11Mpa</span></div>
+      </div>
+      <div id="din_15" class="devinfo">
+        <div class="devcontent">温度<span>33℃</span></div>
+        <div class="devcontent">压力<span>8Mpa</span></div>
+      </div>
+    </div>
+
+    <div class="sbtnwarp">
+      <div id="sbtn_moveA" class="btn" title="显示南楼机组">南</div>
+      <div id="sbtn_moveB" class="btn" title="显示北楼机组">北</div>
+      <div id="sbtn_shbu" class="btn" title="显示建筑"><img src="imgs/icon_building.png" /></div>
+    </div>
+
+    <div class="lefttree">
+      <div class="lefttree_title">选择区域</div>
+      <ul class="lefttree_list">
+        <li>F14</li>
+        <li>F13</li>
+        <li>F12</li>
+        <li>F11</li>
+        <li>F10</li>
+        <li>F9</li>
+        <li>F8</li>
+        <li>F7</li>
+        <li>F6</li>
+        <li class="active">F5</li>
+        <li>F4</li>
+        <li>F3</li>
+        <li>F2</li>
+        <li>F1</li>
+        <li>B1</li>
+        <li>B2</li>
+      </ul>
+    </div>
+
+    <div class="bottompanel">
+      <div class="panelunit">
+        <div class="panelunit_title">主机1进水温度</div>
+        <div class="panelunit_content">22.3℃</div>
+      </div>
+      <div class="panelunit">
+        <div class="panelunit_title">主机1出水温度</div>
+        <div class="panelunit_content">12.3℃</div>
+      </div>
+      <div class="panelunit">
+        <div class="panelunit_title">主机2进水温度</div>
+        <div class="panelunit_content">22.3℃</div>
+      </div>
+      <div class="panelunit">
+        <div class="panelunit_title">主机2出水温度</div>
+        <div class="panelunit_content">12.3℃</div>
+      </div>
+      <div class="panelunit">
+        <div class="panelunit_title">主机3进水温度</div>
+        <div class="panelunit_content">22.3℃</div>
+      </div>
+      <div class="panelunit">
+        <div class="panelunit_title">主机3出水温度</div>
+        <div class="panelunit_content">12.3℃</div>
+      </div>
+      <div class="panelunit">
+        <div class="panelunit_title">主机4进水温度</div>
+        <div class="panelunit_content">22.3℃</div>
+      </div>
+      <div class="panelunit">
+        <div class="panelunit_title">主机4出水温度</div>
+        <div class="panelunit_content">12.3℃</div>
+      </div>
+      <div class="panelunit">
+        <div class="panelunit_title">主机5进水温度</div>
+        <div class="panelunit_content">22.3℃</div>
+      </div>
+      <div class="panelunit">
+        <div class="panelunit_title">主机5出水温度</div>
+        <div class="panelunit_content">12.3℃</div>
+      </div>
+      <div class="panelunit">
+        <div class="panelunit_title">主机6进水温度</div>
+        <div class="panelunit_content">22.3℃</div>
+      </div>
+      <div class="panelunit">
+        <div class="panelunit_title">主机6出水温度</div>
+        <div class="panelunit_content">12.3℃</div>
+      </div>
+    </div>
+
+    <script src="js/app_kongtiao.js"></script>
+  </body>
+</html>

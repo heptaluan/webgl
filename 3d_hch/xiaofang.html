@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>豪车会-楼宇管理</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+
+  <body class="innerpage">
+    <script src="js/webgl/three.min.js"></script>
+    <script src="js/webgl/TrackballControls.js"></script>
+    <script src="js/webgl/OBJLoader.js"></script>
+    <script src="js/webgl/Detector.js"></script>
+    <script src="js/webgl/Projector.js"></script>
+
+    <div id="s3d_a"></div>
+
+    <div id="s3d_a_mask"></div>
+
+    <div id="loadinginfo"></div>
+
+    <table class="topbar">
+      <tr>
+        <td class="left_corner">
+          <span><img src="imgs/icon_menu.png" />显示菜单</span>
+          <a href="index.html"
+            ><span><img src="imgs/icon_return.png" />返回上级</span></a
+          >
+          <a href="index.html"
+            ><span><img src="imgs/icon_home.png" />返回主页</span></a
+          >
+        </td>
+        <td class="fill"></td>
+        <td class="sub_title">消防喷淋</td>
+        <td class="fill"></td>
+        <td class="right_corner">
+          <span class="weather"><img src="imgs/icon_weather.png" />17℃</span>
+          <span id="rttime"></span>
+          <span class="usermenu">
+            <select>
+              <option selected>系统管理员</option>
+              <option>注销</option>
+              <option>退出</option>
+            </select>
+            <img src="imgs/icon_user.png" />
+          </span>
+        </td>
+      </tr>
+    </table>
+
+    <div id="fcanvas"></div>
+
+    <div class="sbtnwarp">
+      <div id="sbtn_reset" class="btn" title="恢复视角"><img src="imgs/icon_reset.png" /></div>
+    </div>
+
+    <div class="lefttree">
+      <div class="lefttree_title">选择区域</div>
+      <ul class="lefttree_list">
+        <li>F14</li>
+        <li>F13</li>
+        <li>F12</li>
+        <li>F11</li>
+        <li>F10</li>
+        <li>F9</li>
+        <li>F8</li>
+        <li>F7</li>
+        <li>F6</li>
+        <li class="active">F5</li>
+        <li>F4</li>
+        <li>F3</li>
+        <li>F2</li>
+        <li>F1</li>
+        <li>B1</li>
+        <li>B2</li>
+      </ul>
+    </div>
+
+    <div class="bottompanel">
+      <div class="panelunit">
+        <div class="panelunit_title">主机1进水温度</div>
+        <div class="panelunit_content">22.3℃</div>
+      </div>
+      <div class="panelunit">
+        <div class="panelunit_title">主机1出水温度</div>
+        <div class="panelunit_content">12.3℃</div>
+      </div>
+      <div class="panelunit">
+        <div class="panelunit_title">主机2进水温度</div>
+        <div class="panelunit_content">22.3℃</div>
+      </div>
+      <div class="panelunit">
+        <div class="panelunit_title">主机2出水温度</div>
+        <div class="panelunit_content">12.3℃</div>
+      </div>
+      <div class="panelunit">
+        <div class="panelunit_title">主机3进水温度</div>
+        <div class="panelunit_content">22.3℃</div>
+      </div>
+      <div class="panelunit">
+        <div class="panelunit_title">主机3出水温度</div>
+        <div class="panelunit_content">12.3℃</div>
+      </div>
+      <div class="panelunit">
+        <div class="panelunit_title">主机4进水温度</div>
+        <div class="panelunit_content">22.3℃</div>
+      </div>
+      <div class="panelunit">
+        <div class="panelunit_title">主机4出水温度</div>
+        <div class="panelunit_content">12.3℃</div>
+      </div>
+      <div class="panelunit">
+        <div class="panelunit_title">主机5进水温度</div>
+        <div class="panelunit_content">22.3℃</div>
+      </div>
+      <div class="panelunit">
+        <div class="panelunit_title">主机5出水温度</div>
+        <div class="panelunit_content">12.3℃</div>
+      </div>
+      <div class="panelunit">
+        <div class="panelunit_title">主机6进水温度</div>
+        <div class="panelunit_content">22.3℃</div>
+      </div>
+      <div class="panelunit">
+        <div class="panelunit_title">主机6出水温度</div>
+        <div class="panelunit_content">12.3℃</div>
+      </div>
+    </div>
+
+    <script src="js/app_xiaofang.js"></script>
+  </body>
+</html>

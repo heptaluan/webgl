@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>豪车会-楼宇管理</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+
+  <body>
+    <script src="js/webgl/three.min.js"></script>
+    <script src="js/webgl/TrackballControls.js"></script>
+    <script src="js/webgl/OBJLoader.js"></script>
+    <script src="js/webgl/MTLLoader.js"></script>
+    <script src="js/webgl/Detector.js"></script>
+    <script src="js/webgl/tween.min.js"></script>
+
+    <div id="main3d"></div>
+
+    <div id="loadinginfo"></div>
+
+    <div id="floatinfo"></div>
+
+    <table class="topbar">
+      <tr>
+        <td class="left_corner">
+          <span><img src="imgs/icon_menu.png" />显示菜单</span>
+          <span><img src="imgs/icon_return.png" />返回上级</span>
+          <span><img src="imgs/icon_home.png" />返回主页</span>
+        </td>
+        <td class="fill"></td>
+        <td class="main_title"></td>
+        <td class="fill"></td>
+        <td class="right_corner">
+          <span class="weather"><img src="imgs/icon_weather.png" />17℃</span>
+          <span id="rttime"></span>
+          <span class="usermenu">
+            <select>
+              <option selected>系统管理员</option>
+              <option>注销</option>
+              <option>退出</option>
+            </select>
+            <img src="imgs/icon_user.png" />
+          </span>
+        </td>
+      </tr>
+    </table>
+
+    <div id="testinfo">123</div>
+
+    <div id="left_panel_warp">
+      <div id="btn_shgs" class="home_spanel">
+        <div class="stitle">生活供水</div>
+        <img src="imgs/icon_view.png" class="iconview" />
+        <img src="imgs/hi_shgs.png" class="hicon" />
+        <div class="gbtn">进入系统</div>
+        <ul class="hinfo">
+          <li>
+            运行模式<select>
+              <option>平日模式</option>
+              <option>节假日模式</option>
+            </select>
+          </li>
+          <li>给水泵开启台数<span>50/100</span></li>
+          <li>有故障给水泵开启个数<span>1/100</span></li>
+          <li>平时/忙碌模式<span>2/100</span></li>
+          <li>当日给水系统总能耗<span>140KWh</span></li>
+        </ul>
+      </div>
+      <div id="btn_xfpl" class="home_spanel">
+        <div class="stitle">消防喷淋</div>
+        <img src="imgs/icon_view.png" class="iconview" />
+        <img src="imgs/hi_xfpl.png" class="hicon" />
+        <a href="xiaofang.html"><div class="gbtn">进入系统</div></a>
+        <ul class="hinfo">
+          <li>
+            运行模式<select>
+              <option>平日模式</option>
+              <option>节假日模式</option>
+            </select>
+          </li>
+          <li>火灾报警<span>正常</span></li>
+          <li>火源位置<span>无</span></li>
+          <li>场内总人数<span>12345</span></li>
+          <li>可用出口区域<span>4F-4A</span></li>
+        </ul>
+      </div>
+      <div id="btn_pwgl" class="home_spanel">
+        <div class="stitle">排污管理</div>
+        <img src="imgs/icon_view.png" class="iconview" />
+        <img src="imgs/hi_pwgl.png" class="hicon" />
+        <div class="gbtn">进入系统</div>
+        <ul class="hinfo">
+          <li>
+            运行模式<select>
+              <option>平日模式</option>
+              <option>节假日模式</option>
+            </select>
+          </li>
+          <li>排水泵开启台数<span>50/100</span></li>
+          <li>有故障排水泵开启个数<span>1/100</span></li>
+          <li>平时/忙碌模式<span>2/100</span></li>
+          <li>当日排水系统总能耗<span>140KWh</span></li>
+        </ul>
+      </div>
+      <div id="btn_ntkt" class="home_spanel">
+        <div class="stitle">暖通空调</div>
+        <img src="imgs/icon_view.png" class="iconview" />
+        <img src="imgs/hi_ntkt.png" class="hicon" />
+        <a href="kongtiao.html"><div class="gbtn">进入系统</div></a>
+        <ul class="hinfo">
+          <li>
+            运行模式<select>
+              <option>平日模式</option>
+              <option>节假日模式</option>
+            </select>
+          </li>
+          <li>冷机设定温度<span>22℃</span></li>
+          <li>冷机开启台数/总数<span>2/100</span></li>
+          <li>鼓风机开启台数/总数<span>2/100</span></li>
+          <li>吊式空调开启台数/总数<span>2/100</span></li>
+          <li>当日暖通系统总功耗<span>1400KWh</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="right_panel_warp">
+      <div id="btn_dtjk" class="home_spanel">
+        <div class="stitle">电梯监控</div>
+        <img src="imgs/icon_view.png" class="iconview" />
+        <img src="imgs/hi_dtjk.png" class="hicon" />
+        <div class="gbtn">进入系统</div>
+        <ul class="hinfo">
+          <li>启用监视数量/未启用数量<span>4/2</span></li>
+          <li>轿厢装载个数<span>2</span></li>
+          <li>当日电梯总能耗<span>14KWh</span></li>
+        </ul>
+      </div>
+      <div id="btn_tcgl" class="home_spanel">
+        <div class="stitle">停车管理</div>
+        <img src="imgs/icon_view.png" class="iconview" />
+        <img src="imgs/hi_tcgl.png" class="hicon" />
+        <div class="gbtn">进入系统</div>
+        <ul class="hinfo">
+          <li>停车场车辆总数<span>2000/3000</span></li>
+          <li>停车场风机开启监控<span>20/30</span></li>
+          <li>停车场开除车辆数<span>200</span></li>
+          <li>停车场停车库个数<span>200</span></li>
+          <li>停车场停车库个数<span>200</span></li>
+        </ul>
+      </div>
+      <div id="btn_xfxt" class="home_spanel">
+        <div class="stitle">新风系统</div>
+        <img src="imgs/icon_view.png" class="iconview" />
+        <img src="imgs/hi_xfxt.png" class="hicon" />
+        <div class="gbtn">进入系统</div>
+        <ul class="hinfo">
+          <li>
+            运行模式<select>
+              <option>平日模式</option>
+              <option>节假日模式</option>
+            </select>
+          </li>
+          <li>排水泵开启台数<span>50/100</span></li>
+          <li>有故障排水泵开启个数<span>1/100</span></li>
+          <li>平时/忙碌模式<span>2/100</span></li>
+          <li>当日排水系统总能耗<span>140KWh</span></li>
+        </ul>
+      </div>
+      <div id="btn_spjk" class="home_spanel">
+        <div class="stitle">视频监控</div>
+        <img src="imgs/icon_view.png" class="iconview" />
+        <img src="imgs/hi_spjk.png" class="hicon" />
+        <div class="gbtn">进入系统</div>
+        <ul class="hinfo">
+          <li>
+            运行模式<select>
+              <option>平日模式</option>
+              <option>节假日模式</option>
+            </select>
+          </li>
+          <li>排水泵开启台数<span>50/100</span></li>
+          <li>有故障排水泵开启个数<span>1/100</span></li>
+          <li>平时/忙碌模式<span>2/100</span></li>
+          <li>当日排水系统总能耗<span>140KWh</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="bottombar">
+      <div id="btn_reset" title="恢复视角"><img src="imgs/icon_reset.png" /></div>
+      <div id="btn_hsground" title="隐藏/显示周边"><img src="imgs/icon_hsground.png" /></div>
+      <div id="btn_selectfloor" title="选择楼层"><img src="imgs/icon_selectfloor.png" /></div>
+      <div id="btn_autorotate" title="自动旋转"><img src="imgs/icon_autorotate.png" /></div>
+    </div>
+
+    <div id="manyou">
+      <div id="btn_exitfloor" class="exitfloor" title="退出楼层漫游"><img src="imgs/icon_exitfloor.png" /></div>
+    </div>
+
+    <div id="floorinfo">
+      <div id="btn_aorb">
+        <div id="sel_a">A</div>
+        <div id="sel_b">B</div>
+      </div>
+      <table class="floorinfo_topbar">
+        <tr>
+          <td>&nbsp;</td>
+          <td id="floorinfo_title">23423423</td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+      <div id="floorbtn_down"></div>
+      <div id="floorbtn_up"></div>
+      <div class="floorinfo_content">
+        <div id="fr_xfpl" class="home_spanel floorinfo_unit">
+          <div id="btn_xfpl">
+            <div class="stitle">消防喷淋</div>
+            <img src="imgs/icon_view.png" class="iconview" />
+            <img src="imgs/hi_xfpl.png" class="hicon" />
+            <a href="xiaofang.html"><div class="gbtn">进入系统</div></a>
+            <ul class="hinfo">
+              <li>
+                运行模式<select>
+                  <option>平日模式</option>
+                  <option>节假日模式</option>
+                </select>
+              </li>
+              <li>火灾报警<span>正常</span></li>
+              <li>火源位置<span>无</span></li>
+              <li>场内总人数<span>12345</span></li>
+              <li>可用出口区域<span>4F-4A</span></li>
+            </ul>
+          </div>
+        </div>
+        <div id="fr_shgs" class="home_spanel floorinfo_unit">
+          <div id="btn_shgs">
+            <div class="stitle">生活供水</div>
+            <img src="imgs/icon_view.png" class="iconview" />
+            <img src="imgs/hi_shgs.png" class="hicon" />
+            <div class="gbtn">进入系统</div>
+            <ul class="hinfo">
+              <li>
+                运行模式<select>
+                  <option>平日模式</option>
+                  <option>节假日模式</option>
+                </select>
+              </li>
+              <li>给水泵开启台数<span>50/100</span></li>
+              <li>有故障给水泵开启个数<span>1/100</span></li>
+              <li>平时/忙碌模式<span>2/100</span></li>
+              <li>当日给水系统总能耗<span>140KWh</span></li>
+            </ul>
+          </div>
+        </div>
+        <div id="fr_pwgl" class="home_spanel floorinfo_unit">
+          <div id="btn_pwgl">
+            <div class="stitle">排污管理</div>
+            <img src="imgs/icon_view.png" class="iconview" />
+            <img src="imgs/hi_pwgl.png" class="hicon" />
+            <div class="gbtn">进入系统</div>
+            <ul class="hinfo">
+              <li>
+                运行模式<select>
+                  <option>平日模式</option>
+                  <option>节假日模式</option>
+                </select>
+              </li>
+              <li>排水泵开启台数<span>50/100</span></li>
+              <li>有故障排水泵开启个数<span>1/100</span></li>
+              <li>平时/忙碌模式<span>2/100</span></li>
+              <li>当日排水系统总能耗<span>140KWh</span></li>
+            </ul>
+          </div>
+        </div>
+        <div id="fr_ntkt" class="home_spanel floorinfo_unit">
+          <div id="btn_ntkt">
+            <div class="stitle">暖通空调</div>
+            <img src="imgs/icon_view.png" class="iconview" />
+            <img src="imgs/hi_ntkt.png" class="hicon" />
+            <a href="kongtiao.html"><div class="gbtn">进入系统</div></a>
+            <ul class="hinfo">
+              <li>
+                运行模式<select>
+                  <option>平日模式</option>
+                  <option>节假日模式</option>
+                </select>
+              </li>
+              <li>冷机设定温度<span>22℃</span></li>
+              <li>冷机开启台数/总数<span>2/100</span></li>
+              <li>鼓风机开启台数/总数<span>2/100</span></li>
+              <li>吊式空调开启台数/总数<span>2/100</span></li>
+              <li>当日暖通系统总功耗<span>1400KWh</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
