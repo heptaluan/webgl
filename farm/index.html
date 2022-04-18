@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>七丫灌区</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <script>
+      loopy()
+      function loopy() {
+        var sWord = ''
+        while (sWord !== '45678') {
+          sWord = prompt('输入正确密码才能访问!')
+          if (sWord === null || sWord === '') {
+            alert('密码错误!')
+            window.location.href = '../../webgl.html'
+            break
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="container"></div>
+    <div id="main3d_mask">
+      <div id="yun"></div>
+    </div>
+    <div id="loadinginfo"></div>
+
+    <div id="btnwarp">
+      <div id="btn_reset" class="gbtn" title="恢复视角">
+        <svg><use xlink:href="imgs/vicons.svg#resetview"></use></svg>
+      </div>
+      <div id="btn_autorotate" class="gbtn" title="自动旋转">
+        <svg><use xlink:href="imgs/vicons.svg#autorotate"></use></svg>
+      </div>
+    </div>
+
+    <ul id="switchbar">
+      <li class="active">
+        <svg><use xlink:href="imgs/vicons.svg#i_farm"></use></svg><br />灌区展示
+      </li>
+      <li>
+        <svg><use xlink:href="imgs/vicons.svg#i_power"></use></svg><br />电量信息
+      </li>
+      <li>
+        <svg><use xlink:href="imgs/vicons.svg#i_water"></use></svg><br />水量信息
+      </li>
+      <li>
+        <svg><use xlink:href="imgs/vicons.svg#i_time"></use></svg><br />灌溉时长
+      </li>
+      <li>
+        <svg><use xlink:href="imgs/vicons.svg#i_level"></use></svg><br />水位信息
+      </li>
+      <li>
+        <svg><use xlink:href="imgs/vicons.svg#i_video"></use></svg><br />视频监控
+      </li>
+    </ul>
+
+    <div id="floatinfo"></div>
+    <div id="pumpinfo"></div>
+
+    <div id="buwarp">
+      <div class="fmask1"></div>
+      <div class="fmask2"></div>
+      <div class="fmask3"></div>
+      <div class="fmask4"></div>
+      <div id="buinfo">
+        <div class="tb"></div>
+        <div class="bb"></div>
+        <div class="lb"></div>
+        <div id="bucon">
+          <div id="butitle"></div>
+          <div id="bc">
+            <div class="btitle">
+              <div class="bt_u">
+                <span class="btu_t">灌溉类型</span>
+                <span class="btu_c">管道</span>
+              </div>
+              <div class="bt_u">
+                <span class="btu_t">灌溉面积</span>
+                <span class="btu_c">12345<b>m²</b></span>
+              </div>
+              <div class="bt_u">
+                <span class="btu_t">设计流量</span>
+                <span class="btu_c">2345<b>m³/h</b></span>
+              </div>
+            </div>
+            <div class="bpump">
+              <div class="buu">
+                <div class="pbox">
+                  <div class="pblist">
+                    <div class="pbl_tt">1号泵机</div>
+                    <div class="pbl_t">电流</div>
+                    <div class="pbl_c">12A</div>
+                    <div class="pbl_t">电压</div>
+                    <div class="pbl_c">220V</div>
+                    <div class="pbl_t">母线电压</div>
+                    <div class="pbl_c">330V</div>
+                    <div class="pbl_t">频率</div>
+                    <div class="pbl_c">333Hz</div>
+                  </div>
+                  <div class="pb_kg k"></div>
+                  <img src="imgs/pr.gif" class="pb_r" />
+                  <div class="pb_yb y"></div>
+                  <div class="pb_dg">
+                    <div class="pbdg_u">断网</div>
+                    <div class="pbdg_u">故障</div>
+                  </div>
+                </div>
+              </div>
+              <div class="buu">
+                <div class="pbox">
+                  <div class="pblist">
+                    <div class="pbl_tt">2号泵机</div>
+                    <div class="pbl_t">电流</div>
+                    <div class="pbl_c">12A</div>
+                    <div class="pbl_t">电压</div>
+                    <div class="pbl_c">220V</div>
+                    <div class="pbl_t">母线电压</div>
+                    <div class="pbl_c">330V</div>
+                    <div class="pbl_t">频率</div>
+                    <div class="pbl_c">333Hz</div>
+                  </div>
+                  <div class="pb_kg g"></div>
+                  <img src="imgs/pr.gif" class="pb_r" style="display: none" />
+                  <div class="pb_yb b"></div>
+                  <div class="pb_dg">
+                    <div class="pbdg_u a">断网</div>
+                    <div class="pbdg_u a">故障</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bpi">
+              <div class="bpi_u">
+                <span class="bpiu_t">瞬时流量</span>
+                <span class="bpiu_c">12345<b class="bpiu_u">m³/h</b></span>
+              </div>
+              <div class="bpi_u">
+                <span class="bpiu_t">累计流量</span>
+                <span class="bpiu_c">12345<b class="bpiu_u">m³/h</b></span>
+              </div>
+              <div class="bpi_u">
+                <span class="bpiu_t">更新时间</span>
+                <span class="bpiu_c">2018-05-12</span>
+              </div>
+            </div>
+            <div class="bpd">
+              <div class="bpd_l">
+                <table cellpadding="0" cellspacing="0" class="bptab">
+                  <tr>
+                    <td>本年</td>
+                    <td class="cur">本季</td>
+                    <td>本月</td>
+                    <td>今日</td>
+                    <td>水稻季</td>
+                  </tr>
+                </table>
+                <div class="bpdcc">
+                  <div class="ccs_blue">
+                    <span class="c_title">年用水量</span>
+                    <span class="c_content">123123</span>
+                    <span class="c_unit">吨</span>
+                  </div>
+                  <div class="ccs_orange">
+                    <span class="c_title">年用电量</span>
+                    <span class="c_content">123123</span>
+                    <span class="c_unit">kWh</span>
+                  </div>
+                </div>
+              </div>
+              <div class="bpd_r">
+                <img src="imgs/ct4.png" style="height: 173px; width: calc(100% - 40px); margin: 20px 0 0 20px" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="bumoving">
+          <span><img src="imgs/buicon.png" /><br />建筑切换中</span>
+        </div>
+        <div class="bubtnwarp">
+          <div id="btn_buprev" class="gbtn" title="上一栋建筑">
+            <svg><use xlink:href="imgs/vicons.svg#arrow_l"></use></svg>
+          </div>
+          <div id="btn_bunext" class="gbtn" title="下一栋建筑">
+            <svg><use xlink:href="imgs/vicons.svg#arrow_r"></use></svg>
+          </div>
+        </div>
+        <div id="buclose" title="关闭窗口">
+          <svg><use xlink:href="imgs/vicons.svg#close"></use></svg>
+        </div>
+      </div>
+    </div>
+
+    <div id="testbtn">Test</div>
+
+    <div class="titlebar"></div>
+    <div id="databar">
+      <section>
+        <div class="spart">
+          <img src="imgs/mpic.jpg" class="mpic" />
+          <div class="mtext">
+            灌区地处华中亚热带湿润气候区，气候温和,土壤肥沃，一年可收两熟到三熟。年平均降水量为900~
+            1240mm,雨量分布不均,有春旱、夏洪、秋涝、冬干的特点。岷江水量丰富,是理想的水源。成都平原为扇形冲积平原,西北高,东南低,以灌县为顶点。灌区工程布置充分利用了优越的地理条件。
+          </div>
+        </div>
+        <div class="spart">
+          <div class="ib_warp">
+            <div class="infobar">
+              <img src="imgs/i_mj.png" />
+              <span class="i_title">灌溉面积</span>
+              <span class="i_content">13<span class="i_unit">幢</span></span>
+            </div>
+            <div class="infobar">
+              <img src="imgs/i_bz.png" />
+              <span class="i_title">建设泵站</span>
+              <span class="i_content">14<span class="i_unit">个</span></span>
+            </div>
+            <div class="infobar">
+              <img src="imgs/i_bj.png" />
+              <span class="i_title">接入泵机</span>
+              <span class="i_content">55<span class="i_unit">个</span><span class="red">故障3个</span></span>
+            </div>
+          </div>
+          <div class="ib_warp">
+            <div class="infobar">
+              <img src="imgs/i_sw.png" />
+              <span class="i_title">水位点</span>
+              <span class="i_content">13<span class="i_unit">个</span></span>
+            </div>
+            <div class="infobar">
+              <img src="imgs/i_sp.png" />
+              <span class="i_title">视频点</span>
+              <span class="i_content">14<span class="i_unit">个</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="spart">
+          <div class="cc_blue">
+            <span class="c_title">年用水量</span>
+            <span class="c_content">123123</span>
+            <span class="c_unit">吨</span>
+          </div>
+        </div>
+        <div class="spart">
+          <div class="cc_orange">
+            <span class="c_title">年用电量</span>
+            <span class="c_content">123123</span>
+            <span class="c_unit">kWh</span>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="spart">
+          <div class="cc_orange">
+            <span class="c_title">年用电量</span>
+            <span class="c_content">123123</span>
+            <span class="c_unit">kWh</span>
+          </div>
+          <img src="imgs/ct1.png" class="ct" />
+        </div>
+        <div class="spart">
+          <div class="dp_warp">
+            <div class="dpu">
+              <img src="imgs/d_1.png" />
+              <span class="p_title">年用电量</span>
+              <span class="p_content">123123<span class="p_unit">kWh</span></span>
+            </div>
+            <div class="dpu">
+              <img src="imgs/d_2.png" />
+              <span class="p_title">今日用电量</span>
+              <span class="p_content">123123<span class="p_unit">kWh</span></span>
+            </div>
+          </div>
+          <div class="dp_warp">
+            <div class="dpu">
+              <img src="imgs/d_3.png" />
+              <span class="p_title">当前负荷</span>
+              <span class="p_content">123123<span class="p_unit">kWh</span></span>
+            </div>
+            <div class="dpu">
+              <img src="imgs/d_4.png" />
+              <span class="p_title">今日最高负荷</span>
+              <span class="p_content">123123<span class="p_unit">kWh</span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="spart">
+          <div class="cc_blue">
+            <span class="c_title">年用水量</span>
+            <span class="c_content">123123</span>
+            <span class="c_unit">吨</span>
+          </div>
+          <img src="imgs/ct2.png" class="ct" />
+        </div>
+        <div class="spart">
+          <div class="dp_warp">
+            <div class="dpu">
+              <img src="imgs/s_1.png" />
+              <span class="p_title">月用水量</span>
+              <span class="p_content">123123<span class="p_unit">吨</span></span>
+            </div>
+            <div class="dpu">
+              <img src="imgs/s_2.png" />
+              <span class="p_title">今日用水量</span>
+              <span class="p_content">123123<span class="p_unit">吨</span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>时长</section>
+      <section>
+        <div class="spart">
+          <img src="imgs/ct3.png" class="ct" />
+        </div>
+        <div class="spart">
+          <div class="dp_warp">
+            <div class="dpu">
+              <img src="imgs/sw_1.png" />
+              <span class="p_title">1号水位计</span>
+              <span class="p_content">0.53<span class="p_unit">米</span></span>
+            </div>
+            <div class="dpu">
+              <img src="imgs/sw_1.png" />
+              <span class="p_title">2号水位计</span>
+              <span class="p_content">0.53<span class="p_unit">米</span></span>
+            </div>
+          </div>
+          <div class="dp_warp">
+            <div class="dpu">
+              <img src="imgs/sw_1.png" />
+              <span class="p_title">3号水位计</span>
+              <span class="p_content">0.53<span class="p_unit">米</span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>视频</section>
+    </div>
+
+    <script src="js/webgl/three.min.js"></script>
+    <script src="js/webgl/Detector.js"></script>
+    <script src="js/webgl/OrbitControls.js"></script>
+    <script src="js/webgl/OBJLoader.js"></script>
+    <script src="js/webgl/MTLLoader.js"></script>
+    <script src="js/webgl/tween.min.js"></script>
+    <script src="js/run.js"></script>
+  </body>
+</html>
