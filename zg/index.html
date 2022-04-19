@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>紫光6号楼</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <script>
+      loopy()
+      function loopy() {
+        var sWord = ''
+        while (sWord !== '45678') {
+          sWord = prompt('输入正确密码才能访问!')
+          if (sWord === null || sWord === '') {
+            alert('密码错误!')
+            window.location.href = '../../webgl.html'
+            break
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <div id="loadinginfo"></div>
+
+    <div id="titlebar">
+      <img class="l" alt="logo" src="imgs/logo.svg" />
+      <div class="m">数字孪生城市 · 智慧能源</div>
+      <div class="s">6号楼</div>
+      <div id="showjy" class="j">
+        <svg role="img"><use xlink:href="imgs/vimg.svg#tips"></use></svg>节能建议
+      </div>
+      <div class="t">2019-06-18 星期二 12:33:44</div>
+      <div class="w">
+        <span
+          ><svg role="img"><use xlink:href="imgs/vimg.svg#weather_1"></use></svg>多云 12~23 ℃</span
+        >
+        <span><b>湿度</b>55%</span>
+        <span><b>PM2.5</b>23ug/m³</span>
+        <span><b>AQI</b>49</span>
+      </div>
+    </div>
+
+    <div id="tips" class="hide">
+      <div id="closetips">
+        <svg role="img"><use xlink:href="imgs/vimg.svg#close"></use></svg>
+      </div>
+      <div class="warp">
+        <div class="dtitle"><span>空调系统指导建议</span></div>
+        <table class="jyb">
+          <tr>
+            <th>运行现状</th>
+            <th>节能建议</th>
+          </tr>
+          <tr>
+            <td>冬季运行数据不足，运行现状不明。夏季运行数据显示室内平均温度长期处于22-24度之间。</td>
+            <td>办公时，根据室内温度控制空调面板，冬季温度控制在20度以下，夏季温度控制在26度以上。</td>
+          </tr>
+          <tr>
+            <td>工作日下班后23%的空调末端处于运行状态。</td>
+            <td>工作日下班时，在空调控制面板处手动关闭风机盘管。</td>
+          </tr>
+          <tr>
+            <td>日常运维准时手动关闭风机盘管。</td>
+            <td>放假前（或加班后），检查并在空调控制面板处手动关闭风机盘管。</td>
+          </tr>
+          <tr>
+            <td>晚上9点-次日7点时间段，空调主机未关闭。</td>
+            <td>晚上9点-次日7点时间段，关闭空调主机、冷冻（冷却）水泵、冷却塔等设备。</td>
+          </tr>
+          <tr>
+            <td>按时维保</td>
+            <td>空调主机、冷冻（冷却）水泵、冷却塔等设备按时维保。</td>
+          </tr>
+          <tr>
+            <td>保温层检查正常</td>
+            <td>以一定的时间频率按时检查暖通系统供水管路保温层的情况（建议一个月一查）。</td>
+          </tr>
+          <tr>
+            <td>基础数据不足，无法自动执行该策略。</td>
+            <td>根据天气、人员等情况，确定空调主机开启台数，做到按需供冷，不浪费。</td>
+          </tr>
+          <tr>
+            <td>空调供冷时有3个门窗处于开启状态。空调供热运行数据不足，运行现状不明。</td>
+            <td>
+              在空调供冷或供热时，门窗关闭，防止冷量或热量散失。
+              <br />空调供冷时有3个门窗处于开启状态。空调供热运行数据不足，运行现状不明。
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div id="bottombar">
+      <table class="dbt active">
+        <tr>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#building"></use></svg>
+            <span class="t">建筑面积</span>
+            <span class="c">2979<b>㎡</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#month"></use></svg>
+            <span class="t">能耗</span>
+            <span class="c">2286.82<b>kgce</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#cost"></use></svg>
+            <span class="t">能耗成本</span>
+            <span class="c">8665.59<b>万元</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#unit"></use></svg>
+            <span class="t">单位建筑面积能耗</span>
+            <span class="c">0.7676<b>kgce/㎡</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#co2"></use></svg>
+            <span class="t">二氧化碳排放量</span>
+            <span class="c">12345<b>kg</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#tree"></use></svg>
+            <span class="t">累计耗树</span>
+            <span class="c">15.98<b>棵</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#device"></use></svg>
+            <span class="t">设备数量</span>
+            <span class="c">128<span class="k">无故障</span></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#point"></use></svg>
+            <span class="t">监控点位数量</span>
+            <span class="c">3236</span>
+          </td>
+        </tr>
+      </table>
+      <table class="dbt">
+        <tr>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#building"></use></svg>
+            <span class="t">建筑面积</span>
+            <span class="c">2979<b>㎡</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#power"></use></svg>
+            <span class="t">用电量</span>
+            <span class="c">5610.6<b>kWh</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#cost"></use></svg>
+            <span class="t">用电成本</span>
+            <span class="c">7854.84<b>元</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#unit"></use></svg>
+            <span class="t">单位建筑面积用电量</span>
+            <span class="c">1.88<b>kWh/㎡</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#co2"></use></svg>
+            <span class="t">二氧化碳排放量</span>
+            <span class="c">5593.77<b>kg</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#coal"></use></svg>
+            <span class="t">用电量折算标准煤</span>
+            <span class="c">2266.68<b>kgce</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#point"></use></svg>
+            <span class="t">设备数量</span>
+            <span class="c">124<span class="k">无故障</span></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#point"></use></svg>
+            <span class="t">监控点位数量</span>
+            <span class="c">3224</span>
+          </td>
+        </tr>
+      </table>
+      <table class="dbt">
+        <tr>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#building"></use></svg>
+            <span class="t">建筑面积</span>
+            <span class="c">2979<b>㎡</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#water"></use></svg>
+            <span class="t">用水量</span>
+            <span class="c">235<b>t</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#cost"></use></svg>
+            <span class="t">用水成本</span>
+            <span class="c">810.75<b>元</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#unit"></use></svg>
+            <span class="t">单位建筑面积用水量</span>
+            <span class="c">0.08<b>t/㎡</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#co2"></use></svg>
+            <span class="t">二氧化碳排放量</span>
+            <span class="c">213.85<b>kg</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#coal"></use></svg>
+            <span class="t">用水量折算标准煤</span>
+            <span class="c">20.14<b>kgce</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#point"></use></svg>
+            <span class="t">设备数量</span>
+            <span class="c">4<span class="k">无故障</span></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#point"></use></svg>
+            <span class="t">监控点位数量</span>
+            <span class="c">12</span>
+          </td>
+        </tr>
+      </table>
+      <table class="dbt">
+        <tr>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#building"></use></svg>
+            <span class="t">建筑面积</span>
+            <span class="c">2979<b>㎡</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#month"></use></svg>
+            <span class="t">能耗</span>
+            <span class="c">2286.82<b>kgce</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#cost"></use></svg>
+            <span class="t">能耗成本</span>
+            <span class="c">8665.59<b>万元</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#unit"></use></svg>
+            <span class="t">单位建筑面积能耗</span>
+            <span class="c">0.7676<b>kgce/㎡</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#co2"></use></svg>
+            <span class="t">二氧化碳排放量</span>
+            <span class="c">12345<b>kg</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#tree"></use></svg>
+            <span class="t">累计耗树</span>
+            <span class="c">15.98<b>棵</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#point"></use></svg>
+            <span class="t">设备数量</span>
+            <span class="c">5<span class="k">无故障</span></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#point"></use></svg>
+            <span class="t">监控点位数量</span>
+            <span class="c">30</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="sview">
+      <div class="active">全楼</div>
+      <div>屋顶</div>
+      <div>F5</div>
+      <div>F4</div>
+      <div>F3</div>
+      <div>F2</div>
+      <div>F1</div>
+    </div>
+
+    <div class="dp">
+      <div id="atab" class="b">
+        <span class="active"
+          ><svg role="img"><use xlink:href="imgs/vimg.svg#building"></use></svg><br />建筑</span
+        >
+        <span
+          ><svg role="img"><use xlink:href="imgs/vimg.svg#power"></use></svg><br />电</span
+        >
+        <span
+          ><svg role="img"><use xlink:href="imgs/vimg.svg#water"></use></svg><br />水</span
+        >
+        <span
+          ><svg role="img"><use xlink:href="imgs/vimg.svg#co2"></use></svg><br />环境</span
+        >
+      </div>
+      <div id="atitle" class="t">全楼_建筑</div>
+      <div class="f">
+        <div class="loading">正在加载数据</div>
+        <iframe id="abox" class="i"></iframe>
+      </div>
+    </div>
+
+    <script src="js/webgl/three.min.js"></script>
+    <script src="js/webgl/SceneUtils.js"></script>
+    <script src="js/webgl/Detector.js"></script>
+    <script src="js/webgl/OrbitControls.js"></script>
+    <script src="js/webgl/OBJLoader.js"></script>
+    <script src="js/webgl/MTLLoader.js"></script>
+    <script src="js/webgl/tween.min.js"></script>
+    <script src="js/run.js"></script>
+  </body>
+</html>
