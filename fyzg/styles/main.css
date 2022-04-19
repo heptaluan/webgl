@@ -1,0 +1,585 @@
+@charset "utf-8";
+
+:root {
+  --mtc: #12a3ff;
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Microsoft YaHei', 微软雅黑;
+  font-size: 12px;
+  margin: 0;
+  overflow: hidden;
+  height: 100%;
+  background: #88a457;
+}
+
+#container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+#loadinginfo {
+  width: 300px;
+  height: 40px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -20px 0 0 -150px;
+  color: #fff;
+  border-radius: 5px;
+  background: rgba(23, 35, 52, 0.7);
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 38px;
+}
+
+#titlebar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0) 100%);
+  width: auto;
+  height: 55px;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 47px;
+  letter-spacing: 2px;
+  padding-right: 60px;
+  z-index: 99;
+}
+
+#titlebar .warp {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0) 100%);
+  width: auto;
+  white-space: nowrap;
+  height: 50px;
+  padding: 0 40px 0 16px;
+  position: relative;
+}
+
+#titlebar .warp img {
+  height: 40px;
+  width: auto;
+  margin: 4px 8px -13px 0;
+}
+
+#sbtn {
+  position: absolute;
+  left: 14px;
+  bottom: 3px;
+  width: 38px;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+#sbtn div {
+  width: 32px;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.3);
+  border: rgba(255, 255, 255, 0.4) solid 1px;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  color: #ffffff;
+  pointer-events: auto;
+  margin-bottom: 8px;
+}
+
+#sbtn div svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  margin: 4px 0 0 4px;
+}
+
+#sbtn div:hover {
+  background: #0d9dec;
+}
+
+.dpwarp {
+  width: 350px;
+  height: calc(100% - 190px);
+  max-height: 900px;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.dpwarp .dptitle {
+  width: calc(100% - 81px);
+  height: 40px;
+  background: linear-gradient(to right, #0f50bb, #0d9dec);
+  position: absolute;
+  left: 7px;
+  top: 0;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 19px;
+  color: #ffffff;
+  padding: 0 0 0 10px;
+  line-height: 38px;
+}
+
+.dpwarp .dptitle::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-right: 20px solid transparent;
+  border-top: 40px solid #0d9dec;
+  top: 0;
+  right: -20px;
+  z-index: 6;
+}
+
+.dpwarp .ifwarp {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+  width: 100%;
+  height: calc(100% - 40px);
+  top: 40px;
+  position: absolute;
+}
+
+.dpwarp .dpbtn {
+  width: 41px;
+  height: 46px;
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  right: 0;
+  top: -6px;
+}
+
+.dpwarp .dpbtn::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 23px solid transparent;
+  border-bottom: 46px solid rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: -23px;
+  z-index: 6;
+}
+
+.dpwarp .dpbtn span {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: rgba(255, 255, 255, 0.2) solid 2px;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 9px;
+  z-index: 8;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+}
+
+.dpwarp .dpbtn span svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  position: absolute;
+  left: 3px;
+  top: 3px;
+}
+
+.dpwarp .dpbtn span:hover {
+  border: #2f6aef solid 2px;
+  background: #2f6aef;
+  color: #ffffff;
+}
+
+.dpwarp .dpif {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  border: 0;
+}
+
+.dpwarp .dpif.zoomed {
+  height: calc(100% - 70px);
+  top: 60px;
+}
+
+.dpwarp .enterbf {
+  width: 150px;
+  height: 36px;
+  background: linear-gradient(#0142a5, #0bb1fe);
+  position: absolute;
+  left: calc(50% - 75px);
+  top: 60px;
+  z-index: 999;
+  border-radius: 6px;
+  border: #12a3ff solid 1px;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 34px;
+  cursor: pointer;
+  display: none;
+}
+
+.dpwarp .enterbf:hover {
+  background: #12a3ff;
+}
+
+.dpwarp .enterbf.show {
+  display: block;
+}
+
+#ftbox {
+  width: 300px;
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  display: none;
+  user-select: none;
+  pointer-events: none;
+  z-index: 88;
+}
+
+#ftbox .tt {
+  background: linear-gradient(to right, #0142a5, #0bb1fe);
+  width: 100%;
+  height: 26px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 25px;
+  text-align: center;
+}
+
+#ftbox .gtb {
+  width: 100%;
+}
+
+.gtb {
+  border-collapse: collapse;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  border-top: rgba(0, 0, 0, 0.7) solid 2px;
+  border-left: rgba(0, 0, 0, 0.7) solid 2px;
+}
+
+.gtb tr th {
+  background: rgba(255, 255, 255, 0.1);
+  font-weight: normal;
+  height: 23px;
+  border-bottom: rgba(0, 0, 0, 0.5) solid 2px;
+}
+
+.gtb tr td {
+  background: rgba(0, 0, 0, 0.3);
+  padding-left: 5px;
+  font-weight: bold;
+  height: 23px;
+  border-bottom: rgba(0, 0, 0, 0.7) solid 2px;
+  border-right: rgba(0, 0, 0, 0.7) solid 2px;
+}
+
+.gtb tr td b {
+  font-size: 12px;
+  font-weight: normal;
+  margin-left: 3px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.mvwarp {
+  pointer-events: none;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  height: 60px;
+}
+
+.mainnav {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  pointer-events: auto;
+  list-style: none;
+  right: 50px;
+  top: -4px;
+  height: 60px;
+  font-size: 0;
+  white-space: nowrap;
+  position: relative;
+}
+
+.mainnav::before {
+  content: '';
+  display: block;
+  width: 160%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.8) 30%,
+    rgba(0, 0, 0, 0.8) 70%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  height: 10px;
+  position: absolute;
+  left: -30%;
+  top: 4px;
+}
+
+.mainnav::after {
+  content: '';
+  display: block;
+  width: 160%;
+  background: linear-gradient(
+    to right,
+    rgba(25, 170, 255, 0),
+    rgba(25, 133, 255, 1) 30%,
+    rgba(25, 133, 255, 1) 70%,
+    rgba(25, 170, 255, 0) 100%
+  );
+  height: 4px;
+  position: absolute;
+  left: -30%;
+  top: 4px;
+}
+
+.mainnav li {
+  display: inline-block;
+  width: 100px;
+  height: 60px;
+  margin: 0 3px;
+  color: rgba(255, 255, 255, 0.6);
+  position: relative;
+  cursor: pointer;
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3));
+}
+
+.mainnav li::after {
+  content: '';
+  display: block;
+  position: absolute;
+  border-top: 7px solid rgba(0, 0, 0, 0.3);
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  height: 0;
+  width: calc(100% - 14px);
+  left: 0;
+  bottom: -7px;
+}
+
+.mainnav li.active {
+  color: #ffffff;
+  background: linear-gradient(#0f50bb, #0d9dec);
+}
+.mainnav li.active::after {
+  border-top: 7px solid #0d9dec;
+}
+
+.mainnav li:hover {
+  color: #ffffff;
+  background: #0d9dec;
+}
+.mainnav li:hover::after {
+  border-top: 7px solid #0d9dec;
+}
+
+.mainnav li svg {
+  width: 36px;
+  height: 36px;
+  fill: currentColor;
+  margin: 10px 0 0 0;
+}
+
+.mainnav li span {
+  font-size: 12px;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  position: relative;
+}
+
+.mainnav li .cm {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 30px solid red;
+  border-left: 30px solid transparent;
+  right: 0;
+  top: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 0;
+  color: #ffffff;
+}
+
+.mainnav li .cm span {
+  display: block;
+  position: absolute;
+  left: -20px;
+  top: -30px;
+  width: 20px;
+  height: 16px;
+  line-height: 16px;
+  letter-spacing: -2px;
+}
+
+.trinfo {
+  position: absolute;
+  z-index: 9;
+  right: 0;
+  top: 0;
+  width: auto;
+  height: 70px;
+  padding: 0 0 0 60px;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0) 100%);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.trinfo .timeinfo {
+  text-align: right;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 23px;
+  line-height: 23px;
+  color: rgba(255, 255, 255, 0.7);
+  background: linear-gradient(to left, rgba(36, 60, 160, 1), rgba(25, 133, 255, 1) 50%, rgba(25, 170, 255, 0) 100%);
+  padding: 0 10px 0 60px;
+  color: #ffffff;
+}
+
+.trinfo .weatherinfo {
+  margin: 35px -5px 0 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.trinfo .weatherinfo span {
+  display: inline-block;
+  height: 26px;
+  padding: 0 10px 0 36px;
+  border-right: rgba(255, 255, 255, 0.1) solid 1px;
+  line-height: 13px;
+  position: relative;
+  margin-right: 10px;
+}
+
+.trinfo .weatherinfo span:last-child {
+  border-right: 0;
+}
+
+.trinfo .weatherinfo span svg {
+  width: 30px;
+  height: 30px;
+  fill: #0d9cec;
+  position: absolute;
+  left: 0;
+  top: -5px;
+}
+
+.trinfo .weatherinfo span b {
+  font-weight: normal;
+  margin: -3px 6px 2px 0;
+  display: block;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.trinfo .weatherinfo span a {
+  font-weight: normal;
+  margin: 0 0 0 2px;
+  font-size: 12px;
+}
+
+#bottombar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(5, 19, 35, 0), rgba(5, 19, 35, 1));
+  width: 100%;
+  height: 150px;
+  color: #ffffff;
+  pointer-events: none;
+}
+
+.dbt {
+  width: calc(100% - 60px);
+  height: 60px;
+  position: absolute;
+  left: 60px;
+  bottom: 20px;
+  display: none;
+}
+
+.dbt.active {
+  display: table;
+}
+
+.dbt tr td {
+  padding: 0 0 0 10px;
+  border-left: rgba(255, 255, 255, 0.1) solid 1px;
+  position: relative;
+}
+
+.dbt tr td svg {
+  width: 40px;
+  height: 40px;
+  fill: #0d9cec;
+  position: absolute;
+  left: 20px;
+  top: 5px;
+}
+
+.dbt tr td .t {
+  font-size: 13px;
+  position: absolute;
+  left: 65px;
+  top: 4px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dbt tr td .c {
+  font-size: 20px;
+  position: absolute;
+  left: 65px;
+  top: 24px;
+  font-weight: bold;
+}
+
+.dbt tr td .c b {
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0 0 0 3px;
+}
+
+.dbt tr td .c .e {
+  color: #f76060;
+  font-weight: normal;
+  font-size: 13px;
+  margin-left: 4px;
+}
+
+.dbt tr td .c .k {
+  color: #60ae31;
+  font-weight: normal;
+  font-size: 13px;
+  margin-left: 4px;
+}

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>机电园</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <div id="loadinginfo"></div>
+
+    <div id="titlebar">
+      <div class="warp">
+        <img src="imgs/plogo.png" />
+        方远泽国机电园能源管理平台
+      </div>
+    </div>
+
+    <div class="mvwarp">
+      <ul class="mainnav">
+        <li class="active">
+          <div class="bk"></div>
+          <svg role="img"><use xlink:href="imgs/vicons.svg#mn_overview"></use></svg>
+          <span>园区概况</span>
+        </li>
+        <li>
+          <div class="bk"></div>
+          <svg role="img"><use xlink:href="imgs/vicons.svg#mn_energy"></use></svg>
+          <span>用电统计</span>
+        </li>
+        <li>
+          <div class="bk"></div>
+          <svg role="img"><use xlink:href="imgs/vicons.svg#mn_water"></use></svg>
+          <span>用水统计</span>
+        </li>
+        <li>
+          <div class="bk"></div>
+          <svg role="img"><use xlink:href="imgs/vicons.svg#mn_environment"></use></svg>
+          <span>环境监测</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="trinfo">
+      <span class="timeinfo">2019-06-18 星期二 12:33:44</span>
+      <div class="weatherinfo">
+        <span
+          ><svg role="img"><use xlink:href="imgs/vicons.svg#weather_1"></use></svg><b>多云</b>12~23<a>℃</a></span
+        >
+        <span
+          ><svg role="img"><use xlink:href="imgs/vicons.svg#shidu"></use></svg><b>湿度</b>55<a>%</a></span
+        >
+        <span
+          ><svg role="img"><use xlink:href="imgs/vicons.svg#pm25"></use></svg><b>PM2.5</b>1234<a>ug/m³</a></span
+        >
+        <span
+          ><svg role="img"><use xlink:href="imgs/vicons.svg#aqi"></use></svg><b>AQI</b>49<a></a
+        ></span>
+      </div>
+    </div>
+
+    <div id="ftbox">
+      <div class="tt"></div>
+      <table class="gtb">
+        <tr>
+          <th>项目一</th>
+          <td>12345<b>kWh</b></td>
+          <th>项目一</th>
+          <td>12345<b>kWh</b></td>
+        </tr>
+        <tr>
+          <th>项目一</th>
+          <td>12345<b>kWh</b></td>
+          <th>项目一</th>
+          <td>12345<b>kWh</b></td>
+        </tr>
+        <tr>
+          <th>项目一</th>
+          <td>12345<b>kWh</b></td>
+          <th>项目一</th>
+          <td>12345<b>kWh</b></td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="bottombar">
+      <div id="sbtn">
+        <div id="btn_reset" title="复原视角">
+          <svg role="img"><use xlink:href="imgs/vicons.svg#resetview"></use></svg>
+        </div>
+        <div id="btn_autoro" title="自动旋转">
+          <svg role="img"><use xlink:href="imgs/vicons.svg#autorotate"></use></svg>
+        </div>
+      </div>
+
+      <table class="dbt active">
+        <tr>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#building"></use></svg>
+            <span class="t">建筑面积</span>
+            <span class="c">2979<b>㎡</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#month"></use></svg>
+            <span class="t">能耗</span>
+            <span class="c">2286.82<b>kgce</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#cost"></use></svg>
+            <span class="t">能耗成本</span>
+            <span class="c">8665.59<b>万元</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#unit"></use></svg>
+            <span class="t">单位建筑面积能耗</span>
+            <span class="c">0.7676<b>kgce/㎡</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#co2"></use></svg>
+            <span class="t">二氧化碳排放量</span>
+            <span class="c">12345<b>kg</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#tree"></use></svg>
+            <span class="t">累计耗树</span>
+            <span class="c">15.98<b>棵</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#device"></use></svg>
+            <span class="t">设备数量</span>
+            <span class="c">128<span class="k">无故障</span></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#point"></use></svg>
+            <span class="t">监控点位数量</span>
+            <span class="c">3236</span>
+          </td>
+        </tr>
+      </table>
+      <table class="dbt">
+        <tr>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#building"></use></svg>
+            <span class="t">建筑面积</span>
+            <span class="c">2979<b>㎡</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#power"></use></svg>
+            <span class="t">用电量</span>
+            <span class="c">5610.6<b>kWh</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#cost"></use></svg>
+            <span class="t">用电成本</span>
+            <span class="c">7854.84<b>元</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#unit"></use></svg>
+            <span class="t">单位建筑面积用电量</span>
+            <span class="c">1.88<b>kWh/㎡</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#co2"></use></svg>
+            <span class="t">二氧化碳排放量</span>
+            <span class="c">5593.77<b>kg</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#coal"></use></svg>
+            <span class="t">用电量折算标准煤</span>
+            <span class="c">2266.68<b>kgce</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#point"></use></svg>
+            <span class="t">设备数量</span>
+            <span class="c">124<span class="k">无故障</span></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#point"></use></svg>
+            <span class="t">监控点位数量</span>
+            <span class="c">3224</span>
+          </td>
+        </tr>
+      </table>
+      <table class="dbt">
+        <tr>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#building"></use></svg>
+            <span class="t">建筑面积</span>
+            <span class="c">2979<b>㎡</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#water"></use></svg>
+            <span class="t">用水量</span>
+            <span class="c">235<b>t</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#cost"></use></svg>
+            <span class="t">用水成本</span>
+            <span class="c">810.75<b>元</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#unit"></use></svg>
+            <span class="t">单位建筑面积用水量</span>
+            <span class="c">0.08<b>t/㎡</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#co2"></use></svg>
+            <span class="t">二氧化碳排放量</span>
+            <span class="c">213.85<b>kg</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#coal"></use></svg>
+            <span class="t">用水量折算标准煤</span>
+            <span class="c">20.14<b>kgce</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#point"></use></svg>
+            <span class="t">设备数量</span>
+            <span class="c">4<span class="k">无故障</span></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#point"></use></svg>
+            <span class="t">监控点位数量</span>
+            <span class="c">12</span>
+          </td>
+        </tr>
+      </table>
+      <table class="dbt">
+        <tr>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#building"></use></svg>
+            <span class="t">建筑面积</span>
+            <span class="c">2979<b>㎡</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#month"></use></svg>
+            <span class="t">能耗</span>
+            <span class="c">2286.82<b>kgce</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#cost"></use></svg>
+            <span class="t">能耗成本</span>
+            <span class="c">8665.59<b>万元</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#unit"></use></svg>
+            <span class="t">单位建筑面积能耗</span>
+            <span class="c">0.7676<b>kgce/㎡</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#co2"></use></svg>
+            <span class="t">二氧化碳排放量</span>
+            <span class="c">12345<b>kg</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#tree"></use></svg>
+            <span class="t">累计耗树</span>
+            <span class="c">15.98<b>棵</b></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#point"></use></svg>
+            <span class="t">设备数量</span>
+            <span class="c">5<span class="k">无故障</span></span>
+          </td>
+          <td>
+            <svg role="img"><use xlink:href="imgs/vicons.svg#point"></use></svg>
+            <span class="t">监控点位数量</span>
+            <span class="c">30</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="dpwarp">
+      <div class="dptitle">园区概况</div>
+      <div class="dpbtn">
+        <span id="btn_refresh" title="刷新数据">
+          <svg role="img">
+            <use xlink:href="imgs/vicons.svg#ni_refresh"></use>
+          </svg>
+        </span>
+      </div>
+      <div class="ifwarp">
+        <iframe class="dpif"></iframe>
+      </div>
+    </div>
+
+    <script src="js/webgl/three.min.js"></script>
+    <script src="js/webgl/SceneUtils.js"></script>
+    <script src="js/webgl/Detector.js"></script>
+    <script src="js/webgl/OrbitControls.js"></script>
+    <script src="js/webgl/OBJLoader.js"></script>
+    <script src="js/webgl/MTLLoader.js"></script>
+    <script src="js/webgl/UniformsUtils.js"></script>
+    <script src="js/webgl/tween.min.js"></script>
+    <script src="js/webgl/WaterShader.js"></script>
+    <script src="js/run.js"></script>
+  </body>
+</html>
