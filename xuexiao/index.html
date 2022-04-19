@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>智慧校园</title>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="styles/style_main.css" />
+  </head>
+
+  <body>
+    <div id="container"></div>
+
+    <div class="loadingMask">
+      <div class="loadingCircle">
+        <div class="mask">
+          <svg role="img"><use xlink:href="images/icons.svg#logo"></use></svg>
+        </div>
+      </div>
+    </div>
+
+    <!--
+
+<div class="tempBack"></div>
+
+
+		-->
+
+    <div class="topBar">
+      <table>
+        <tr>
+          <td class="leftCorner">
+            <svg class="weather" role="img"><use xlink:href="images/icons.svg#weather_1"></use></svg>
+            <div class="envData">
+              <span><b>21</b>℃</span>
+              <span><b>23</b>PM2.5</span>
+              <span><b>49</b>AQI</span>
+            </div>
+          </td>
+          <td class="leftFill"></td>
+          <td class="leftDecorate"></td>
+          <td class="title">智慧校园IOC大屏</td>
+          <td class="rightDecorate"></td>
+          <td class="rightFill"></td>
+          <td class="rightCorner">
+            <div class="date"></div>
+            <div class="time"></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="bottomBar">
+      <table>
+        <tr>
+          <td class="leftFill"></td>
+          <td class="leftDecorate"></td>
+          <td class="content">
+            <ul class="mainMenu">
+              <li class="active"><span></span>全局</li>
+              <li><span></span>供电</li>
+              <li><span></span>给水</li>
+              <li><span></span>环境</li>
+              <li><span></span>照明</li>
+              <li><span></span>空调</li>
+              <li><span></span>监控</li>
+            </ul>
+            <div class="viewTool">
+              <div id="resetView">恢复视角</div>
+              <div id="autoRotate">自动旋转</div>
+            </div>
+          </td>
+          <td class="rightDecorate"></td>
+          <td class="rightFill"></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="maskTop"></div>
+    <div class="maskBottom"></div>
+
+    <div class="leftBar">
+      <div class="dataBlock main top">
+        <div class="title">能耗概况</div>
+        <div id="chart_A" class="chart A"></div>
+        <table class="itemList right">
+          <tr>
+            <td>
+              <svg role="img"><use xlink:href="images/icons.svg#icon_run"></use></svg><span>203</span>天
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <svg role="img"><use xlink:href="images/icons.svg#icon_co2"></use></svg><span>188</span>吨
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <svg role="img"><use xlink:href="images/icons.svg#icon_tree"></use></svg><span>1216</span>棵
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <svg role="img"><use xlink:href="images/icons.svg#icon_coal"></use></svg><span>116</span>吨
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="dataBlock main">
+        <div class="title">本月建筑能耗排名</div>
+        <div id="chart_B" class="chart"></div>
+      </div>
+      <div class="dataBlock main">
+        <div class="title">本月能耗分析</div>
+        <div id="chart_C" class="chart"></div>
+      </div>
+    </div>
+
+    <div class="rightBar">
+      <div class="dataBlock main top">
+        <div class="title">本月能耗概况</div>
+        <div id="chart_D" class="chart A"></div>
+        <div class="chart_D_text">在线<span>875</span>离线<span>137</span></div>
+        <div id="chart_E" class="chart B"></div>
+      </div>
+      <div class="dataBlock main">
+        <div class="title">本月能耗概况</div>
+        <div id="chart_F" class="chart"></div>
+      </div>
+      <div class="dataBlock main">
+        <div class="title">设备报警记录</div>
+        <div class="listWarp">
+          <table class="normalList">
+            <tr>
+              <th>设备类型</th>
+              <th>安装位置</th>
+              <th>时间</th>
+              <th>描述</th>
+            </tr>
+            <tr>
+              <td>水表</td>
+              <td>中央大楼1F</td>
+              <td>20.9.12</td>
+              <td>超过阙值</td>
+            </tr>
+            <tr>
+              <td>水表</td>
+              <td>中央大楼1F</td>
+              <td>20.9.12</td>
+              <td>超过阙值</td>
+            </tr>
+            <tr>
+              <td>水表</td>
+              <td>中央大楼1F</td>
+              <td>20.9.12</td>
+              <td>超过阙值</td>
+            </tr>
+            <tr>
+              <td>水表</td>
+              <td>中央大楼1F</td>
+              <td>20.9.12</td>
+              <td>超过阙值</td>
+            </tr>
+            <tr>
+              <td>水表</td>
+              <td>中央大楼1F</td>
+              <td>20.9.12</td>
+              <td>超过阙值</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="popWindow popBuilding">
+      <table class="title">
+        <tr>
+          <td class="leftFill"></td>
+          <td class="leftDecorate"></td>
+          <td class="content"></td>
+          <td class="rightDecorate"></td>
+          <td class="rightFill">
+            <div id="closePopBuilding" class="gButton">
+              <svg role="img"><use xlink:href="images/icons.svg#close"></use></svg>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <div id="switchButtonLeft" class="switchButton left">
+        <svg role="img"><use xlink:href="images/icons.svg#arrow_left"></use></svg>
+      </div>
+      <div id="switchButtonRight" class="switchButton right">
+        <svg role="img"><use xlink:href="images/icons.svg#arrow_right"></use></svg>
+      </div>
+      <div class="popLeft">
+        <div class="dataBlock building short">
+          <div class="dataItem">总建筑面积(㎡)<span>3241.56</span></div>
+          <div class="dataItem">建筑层数<span>5</span></div>
+          <div class="dataItem">单位面积能耗(kgce/㎡)<span>1336.71</span></div>
+          <div class="dataItem">空调类型<span class="cn">中央式</span></div>
+        </div>
+        <div class="dataBlock building">
+          <div class="title">设备分类能耗统计</div>
+          <div id="chart_G" class="chart"></div>
+        </div>
+        <div class="dataBlock building">
+          <div class="title">月能耗同比</div>
+          <div id="chart_H" class="chart"></div>
+        </div>
+      </div>
+      <div class="popRight">
+        <div class="dataBlock building short">
+          <div class="dataItem">室内温度(℃)<span>23.6</span></div>
+          <div class="dataItem">室内湿度(%)<span>45</span></div>
+          <div class="dataItem">室内PM2.5<span>23</span></div>
+          <div class="dataItem">室内空气质量AQI<span>49</span></div>
+        </div>
+        <div class="dataBlock building">
+          <div class="title">周能耗统计</div>
+          <div id="chart_I" class="chart"></div>
+        </div>
+        <div class="dataBlock building">
+          <div class="title">设备控制</div>
+          <div class="listWarp">
+            <table class="normalList alignLeft">
+              <tr>
+                <th>设备名称</th>
+                <th>当前状态</th>
+                <th>控制</th>
+              </tr>
+              <tr>
+                <td>102室用电</td>
+                <td class="color_green">已打开</td>
+                <td>[关闭]</td>
+              </tr>
+              <tr>
+                <td>103室用电</td>
+                <td class="color_green">已打开</td>
+                <td>[关闭]</td>
+              </tr>
+              <tr>
+                <td>103室用电</td>
+                <td class="color_green">已打开</td>
+                <td>[关闭]</td>
+              </tr>
+              <tr>
+                <td>202室用电</td>
+                <td class="color_green">已打开</td>
+                <td>[关闭]</td>
+              </tr>
+              <tr>
+                <td>203室用电</td>
+                <td class="color_green">已打开</td>
+                <td>[关闭]</td>
+              </tr>
+              <tr>
+                <td>204室用电</td>
+                <td class="color_green">已打开</td>
+                <td>[关闭]</td>
+              </tr>
+              <tr>
+                <td>302室用电</td>
+                <td class="color_green">已打开</td>
+                <td>[关闭]</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popWindow popCamera">
+      <table class="title">
+        <tr>
+          <td class="leftFill"></td>
+          <td class="leftDecorate"></td>
+          <td class="content"></td>
+          <td class="rightDecorate"></td>
+          <td class="rightFill">
+            <div id="closePopCamera" class="gButton">
+              <svg role="img"><use xlink:href="images/icons.svg#close"></use></svg>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <div class="videoZone"></div>
+      <div class="cameraUI"></div>
+    </div>
+
+    <script type="module" src="js/app_webgl.js"></script>
+    <script src="js/app_data.js"></script>
+    <script src="../jslib/echarts.min.js"></script>
+    <script src="js/app_chart.js"></script>
+  </body>
+</html>
