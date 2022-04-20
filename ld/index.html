@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>某金融中心</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <div id="loadinginfo"></div>
+
+    <div class="topbar">
+      <div class="maintitle">
+        <div class="cwarp">
+          <svg role="img"><use xlink:href="imgs/vimg.svg#logo"></use></svg>
+          <span>某金融中心能源管理系统</span>
+        </div>
+      </div>
+      <div class="showbf">
+        <svg role="img"><use xlink:href="imgs/vimg.svg#showbf"></use></svg>
+      </div>
+      <div class="showmv">
+        <svg role="img"><use xlink:href="imgs/vimg.svg#showmv"></use></svg>
+      </div>
+      <div class="mvwarp">
+        <ul class="mainnav">
+          <li class="active">
+            <div class="bk"></div>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#mn_overview"></use></svg>
+            <span>项目概况</span>
+          </li>
+          <li>
+            <div class="bk"></div>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#mn_power"></use></svg>
+            <span>能源管理</span>
+          </li>
+          <li>
+            <div class="bk"></div>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#mn_water"></use></svg>
+            <span>给排水</span>
+          </li>
+          <li>
+            <div class="bk"></div>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#mn_light"></use></svg>
+            <span>照明管理</span>
+          </li>
+          <li>
+            <div class="bk"></div>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#mn_environment"></use></svg>
+            <span>环境管理</span>
+          </li>
+          <li>
+            <div class="bk"></div>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#mn_airc"></use></svg>
+            <span>暖通管理</span>
+          </li>
+          <li>
+            <div class="bk"></div>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#mn_surveillance"></use></svg>
+            <span>安防视频</span>
+          </li>
+          <li>
+            <div class="bk"></div>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#mn_exit"></use></svg>
+            <span>应急管理</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="fbtnwarp">
+        <span id="nav_refresh" title="刷新数据">
+          <svg role="img"><use xlink:href="imgs/vimg.svg#ni_refresh"></use></svg>
+        </span>
+      </div>
+    </div>
+
+    <ul class="selectbtn">
+      <li class="active">全楼视角</li>
+      <li><span>天台</span></li>
+      <li><span>18</span></li>
+      <li><span>17</span></li>
+      <li><span>16</span></li>
+      <li><span>15</span></li>
+      <li><span>14</span></li>
+      <li><span>13</span></li>
+      <li><span>12</span></li>
+      <li><span>11</span></li>
+      <li><span>10</span></li>
+      <li><span>9</span></li>
+      <li><span>8</span></li>
+      <li><span>7</span></li>
+      <li><span>6</span></li>
+      <li><span>5</span></li>
+      <li><span>4</span></li>
+      <li><span>3</span></li>
+      <li><span>2</span></li>
+      <li><span>1</span></li>
+      <li><span>夹层</span></li>
+      <li><span>B1</span></li>
+      <li><span>B2</span></li>
+      <li><span>B3</span></li>
+    </ul>
+
+    <div class="ddwarp">
+      <div class="datapanel">
+        <div class="dptitle">
+          <div class="tbox">
+            <svg role="img"><use xlink:href="imgs/vimg.svg#dp_building"></use></svg>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#dp_floor"></use></svg>
+            <svg role="img"><use xlink:href="imgs/vimg.svg#dp_device"></use></svg>
+            <span></span>
+          </div>
+          <div class="closedp">
+            <svg role="img"><use xlink:href="imgs/vimg.svg#closedp"></use></svg>
+          </div>
+          <div class="bbox">
+            <span id="dpb_refresh" title="刷新数据">
+              <svg role="img"><use xlink:href="imgs/vimg.svg#ni_refresh"></use></svg>
+            </span>
+            <span id="dpb_toright" title="关闭面板">
+              <svg role="img"><use xlink:href="imgs/vimg.svg#ni_toright"></use></svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="pppwarp">
+          <iframe id="dataw" class="dpwarp"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="databtn hide">
+      <svg role="img"><use xlink:href="imgs/vimg.svg#ni_databtn"></use></svg>
+    </div>
+
+    <script src="js/webgl/three.min.js"></script>
+    <script src="js/webgl/SceneUtils.js"></script>
+    <script src="js/webgl/Detector.js"></script>
+    <script src="js/webgl/OrbitControls.js"></script>
+    <script src="js/webgl/OBJLoader.js"></script>
+    <script src="js/webgl/MTLLoader.js"></script>
+    <script src="js/webgl/tween.min.js"></script>
+    <script src="js/simpleheat.js"></script>
+    <script src="js/run.js"></script>
+  </body>
+</html>
