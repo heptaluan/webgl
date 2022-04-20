@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>罐式预制泵站</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <script>
+      loopy()
+      function loopy() {
+        var sWord = ''
+        while (sWord !== '45678') {
+          sWord = prompt('输入正确密码才能访问!')
+          if (sWord === null || sWord === '') {
+            alert('密码错误!')
+            window.location.href = '../../webgl.html'
+            break
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="container"></div>
+    <div id="loadinginfo"></div>
+
+    <div id="btnwarp">
+      <div id="btn_reset" class="gbtn" title="恢复视角">
+        <svg><use xlink:href="imgs/vicons.svg#resetview"></use></svg>
+      </div>
+      <div id="btn_autorotate" class="gbtn" title="自动旋转">
+        <svg><use xlink:href="imgs/vicons.svg#autorotate"></use></svg>
+      </div>
+    </div>
+
+    <div class="testbox">
+      <div id="RK_btn">人孔_开关</div>
+      <div id="JSKG_btn">进水管_开关</div>
+      <div id="GSKG_btn">格栅_开关</div>
+      <div id="GSGZ_btn">格栅_故障</div>
+      <div id="BA_btn">增加泵</div>
+      <div id="BS_btn">减少泵</div>
+      <span id="B1">
+        <div id="SB1KG_btn">水泵1_开关</div>
+        <div id="SB1GZ_btn">水泵1_故障</div>
+        <div id="SB1BP_btn">水泵1_变频</div>
+      </span>
+      <span id="B2">
+        <div id="SB2KG_btn">水泵2_开关</div>
+        <div id="SB2GZ_btn">水泵2_故障</div>
+        <div id="SB2BP_btn">水泵2_变频</div>
+      </span>
+      <span id="B3">
+        <div id="SB3KG_btn">水泵3_开关</div>
+        <div id="SB3GZ_btn">水泵3_故障</div>
+        <div id="SB3BP_btn">水泵3_变频</div>
+      </span>
+      <span id="B4">
+        <div id="SB4KG_btn">水泵4_开关</div>
+        <div id="SB4GZ_btn">水泵4_故障</div>
+        <div id="SB4BP_btn">水泵4_变频</div>
+      </span>
+      <div id="YWA_btn">液位加</div>
+      <div id="YWS_btn">液位减</div>
+      <div id="FZS_btn">房子显示</div>
+      <div id="FZH_btn">房子隐藏</div>
+    </div>
+
+    <div class="tab">
+      <a class="active">罐式</a>
+      <a href="index_xs.html">箱式</a>
+    </div>
+
+    <script src="js/webgl/three.min.js"></script>
+    <script src="js/webgl/Detector.js"></script>
+    <script src="js/webgl/OrbitControls.js"></script>
+    <script src="js/webgl/OBJLoader.js"></script>
+    <script src="js/webgl/MTLLoader.js"></script>
+    <script src="js/webgl/tween.min.js"></script>
+    <script src="js/webgl/WaterShader.js"></script>
+    <script src="js/run_fz.js"></script>
+  </body>
+</html>
