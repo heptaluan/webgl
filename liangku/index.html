@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>粮库3D</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="styles/main.css">
+	</head>
+	<body>
+	
+		<script src="js/webgl/three.min.js"></script>
+		<script src="js/webgl/TrackballControls.js"></script>
+		<script src="js/webgl/PointerLockControls.js"></script>
+		<script src="js/webgl/OBJLoader.js"></script>
+		<script src="js/webgl/MTLLoader.js"></script>
+		<script src="js/webgl/tween.min.js"></script>
+
+		<div id="loadinginfo"></div>
+		
+		<div id="tishi"></div>
+		
+		<div id="ajtips">
+			<div id="ajtips_title"></div>
+			<table class="ajtable" cellspacing="0" cellpadding="0">
+				<tr>
+					<th>实时库存</td>
+					<td>2500(吨)</td>
+					<th>仓容</td>
+					<td>3600(吨)</td>					
+				</tr>
+				<tr>
+					<th>粮食等级</td>
+					<td>二级</td>
+					<th>水分</td>
+					<td>15.2%</td>
+				</tr>
+				<tr>
+					<th>粮食品种</td>
+					<td>混合小麦</td>
+					<th>杂质</td>
+					<td>3.8%</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div id="tianqi">
+			<img src="imgs/weather1.png">
+			<div>
+			2017年12月21日<br>
+			天气晴<br>
+			19~21℃<br>
+			东北风1~2级
+			</div>
+		</div>
+		
+		<div id="sxttips"></div>
+		
+		<div id="sxtinfo">
+			<div id="sxtinfo_title"></div>
+			<div id="sxtinfo_close"></div>
+			<img src="imgs/sxt.png">
+		</div>
+		
+		<div id="sxtinfoui">
+			<div id="sxtinfoui_title"></div>
+			<div id="sxtinfoui_close"></div>
+			<img src="imgs/sxt.png">
+		</div>
+			
+		<div id="btnwarp">
+			<div id="btn_huifu"><img src="imgs/icon_huifu.png">恢复视角</div>
+			<div id="btn_manyou"><img src="imgs/icon_manyou.png">漫游模式</div>
+			<div id="btn_xuanz"><img src="imgs/icon_xuanz.png">自动旋转</div>			
+			<div id="btn_quanp">全屏显示</div>			
+		</div>
+		
+		<div id="yjinfo">预警：&nbsp;&nbsp;◆ 今夜至明日有时有阵雨，请及时关闭仓库仓窗！&nbsp;&nbsp;◆ 仓内虫害为5头，超过预警，请及时熏蒸除虫！	&nbsp;&nbsp;&nbsp;&nbsp; ◆粮温异常，请及时通风</div>
+		
+		<div id="pchuang"></div>
+		
+		<div id="pfengji"></div>
+		
+		<div id="ajinfo">
+			
+			<div id="ajtitle"></div>
+			
+			<div id="shbtn_left"><div id="shla"></div></div>
+		
+			<div id="leftwarp">
+			
+				<div class="ajunit">
+					<div class="ajutitle">基本信息</div>
+					<img src="imgs/pic1.png" class="ajuzp">
+					<div class="ajucon">
+						<table class="ajtable" cellspacing="0" cellpadding="0">
+							<tr>
+								<th>保管员</th>
+								<td>杨树林</td>
+							</tr>
+							<tr>
+								<th>职位</th>
+								<td>保管员</td>
+							</tr>
+							<tr>
+								<th>学历</th>
+								<td>高中</td>
+							</tr>
+							<tr>
+								<th>工龄</th>
+								<td>15年</td>
+							</tr>
+							<tr>
+								<th>家庭住址</th>
+								<td>漓江镇莲花村二组</td>
+							</tr>
+							<tr>
+								<th>联系电话</th>
+								<td>15962458569</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				
+				<div class="ajunit">
+					<div class="ajutitle">粮温信息</div>
+					<img src="imgs/icon_wendu.png" class="ajuicon">
+					<div id="show_wd" class="ajubtn">三维粮温</div>
+					<div class="ajucon">
+						<table class="ajtable" cellspacing="0" cellpadding="0">
+							<tr>
+								<th>保管员</th>
+								<td>杨树林</td>
+								<th>保管员</th>
+								<td>杨树林</td>
+							</tr>
+							<tr>
+								<th>职位</th>
+								<td>保管员</td>
+								<th>职位</th>
+								<td>保管员</td>
+							</tr>
+							<tr>
+								<th>学历</th>
+								<td>高中</td>
+								<th>学历</th>
+								<td>高中</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				
+				<div class="ajunit">
+					<div class="ajutitle">通风信息</div>
+					<img src="imgs/icon_tongfeng.png" class="ajuicon">
+					<div id="show_tf" class="ajubtn">通风控制</div>
+					<div class="ajucon">
+						<table class="ajtable" cellspacing="0" cellpadding="0">
+							<tr>
+								<th>保管员</th>
+								<td>杨树林</td>
+								<th>保管员</th>
+								<td>杨树林</td>
+							</tr>
+							<tr>
+								<th>职位</th>
+								<td>保管员</td>
+								<th>职位</th>
+								<td>保管员</td>
+							</tr>
+							<tr>
+								<th>学历</th>
+								<td>高中</td>
+								<th>学历</th>
+								<td>高中</td>
+							</tr>
+						</table>
+					</div>
+				</div>			
+				
+			</div>
+			
+			<div id="shbtn_right"><div id="shra"></div></div>
+			
+			<div id="rightwarp">
+
+				<div class="ajunit">
+					<div class="ajutitle">虫害气体信息</div>
+					<img src="imgs/icon_chong.png" class="ajuicon">
+					<div id="show_ch" class="ajubtn">三维虫气</div>
+					<div class="ajucon">
+						<table class="ajtable" cellspacing="0" cellpadding="0">
+							<tr>
+								<th>保管员</th>
+								<td>杨树林</td>
+								<th>保管员</th>
+								<td>杨树林</td>
+							</tr>
+							<tr>
+								<th>职位</th>
+								<td>保管员</td>
+								<th>职位</th>
+								<td>保管员</td>
+							</tr>
+							<tr>
+								<th>学历</th>
+								<td>高中</td>
+								<th>学历</th>
+								<td>高中</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				
+				<div class="ajunit">
+					<div class="ajutitle">能耗信息</div>
+					<img src="imgs/icon_nenghao.png" class="ajuicon">
+					<div id="show_nh" class="ajubtn">能耗采集</div>
+					<div class="ajucon">
+						<table class="ajtable" cellspacing="0" cellpadding="0">
+							<tr>
+								<th>保管员</th>
+								<td>杨树林</td>
+								<th>保管员</th>
+								<td>杨树林</td>
+							</tr>
+							<tr>
+								<th>职位</th>
+								<td>保管员</td>
+								<th>职位</th>
+								<td>保管员</td>
+							</tr>
+							<tr>
+								<th>学历</th>
+								<td>高中</td>
+								<th>学历</th>
+								<td>高中</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				
+				<div class="ajunits">
+					<div class="ajutitle">气调信息</div>
+					<div class="ajucona">
+						<table class="ajtable" cellspacing="0" cellpadding="0">
+							<tr>
+								<th>保管员</th>
+								<td>杨树林</td>
+								<th>保管员</th>
+								<td>杨树林</td>
+							</tr>
+							<tr>
+								<th>职位</th>
+								<td>保管员</td>
+								<th>职位</th>
+								<td>保管员</td>
+							</tr>
+							<tr>
+								<th>学历</th>
+								<td>高中</td>
+								<th>学历</th>
+								<td>高中</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				
+				<div class="ajunits">
+					<div class="ajutitle">视频信息</div>
+					<div class="ajusxt">
+						<div id="sxtui">1号摄像头</div>
+						<div>2号摄像头</div>
+					</div>
+				</div>							
+				
+			</div>
+	
+		</div>
+
+		<script src="js/app.js"></script>
+	</body>
+</html>
