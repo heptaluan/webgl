@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>熊猫实验室</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <script>
+      loopy()
+      function loopy() {
+        var sWord = ''
+        while (sWord !== '45678') {
+          sWord = prompt('输入正确密码才能访问!')
+          if (sWord === null || sWord === '') {
+            alert('密码错误!')
+            window.location.href = '../../webgl.html'
+            break
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <div id="loadinginfo"></div>
+
+    <ul id="pipemark">
+      <li>供水管道</li>
+      <li>原水管道</li>
+    </ul>
+
+    <div id="sbtn">
+      <div id="sb_overview" title="外观" class="active">
+        <span>
+          <svg role="img"><use xlink:href="imgs/vimg.svg#sicon_overview"></use></svg>
+        </span>
+      </div>
+      <div id="sb_pipe" title="管道">
+        <span>
+          <svg role="img"><use xlink:href="imgs/vimg.svg#sicon_pipe"></use></svg>
+        </span>
+      </div>
+      <div id="sb_pump" title="泵房">
+        <span>
+          <svg role="img"><use xlink:href="imgs/vimg.svg#sicon_pump"></use></svg>
+        </span>
+      </div>
+      <div id="sb_bi" title="BI">
+        <span>
+          <svg role="img"><use xlink:href="imgs/vimg.svg#sicon_bi"></use></svg>
+        </span>
+      </div>
+    </div>
+
+    <div id="rbtn">
+      <span>
+        <svg role="img"><use xlink:href="imgs/vimg.svg#sicon_restore"></use></svg>
+      </span>
+    </div>
+
+    <div class="tips"></div>
+
+    <div class="topinfo">
+      <div class="un">今日总能耗<br /><span>12345</span>kWh</div>
+      <div class="un">今日吨水能耗<br /><span>12.34</span>kWh/m³</div>
+      <div class="un">当期损耗率<br /><span>0.43</span>%</div>
+    </div>
+
+    <div class="toolbox">
+      <div id="btn_drawpath" title="自定义路径">
+        <svg role="img"><use xlink:href="imgs/vimg.svg#drawpath"></use></svg>
+      </div>
+      <div id="btn_flyview" title="飞行漫游">
+        <svg role="img"><use xlink:href="imgs/vimg.svg#flyview"></use></svg>
+      </div>
+      <div id="btn_personview" title="步行漫游">
+        <svg role="img"><use xlink:href="imgs/vimg.svg#personview"></use></svg>
+      </div>
+      <div id="btn_resetview" title="镜头复位">
+        <svg role="img"><use xlink:href="imgs/vimg.svg#resetview"></use></svg>
+      </div>
+    </div>
+
+    <div id="movebtn">
+      <div id="btnup"></div>
+      <div id="btndown"></div>
+      <div id="btnleft"></div>
+      <div id="btnright"></div>
+    </div>
+
+    <div id="btn_gd" class="ttab">
+      <div id="btn_gd_yl" class="active">压力监控</div>
+      <div id="btn_gd_ll">流量监控</div>
+      <div id="btn_gd_sz">水质监控</div>
+    </div>
+
+    <div id="btn_bf" class="ttab">
+      <div id="btn_bf_tf" class="active">调峰监控</div>
+      <div id="btn_bf_rg">能耗分析</div>
+    </div>
+
+    <div class="dpwarp" id="dpanel">
+      <div class="dptitle" id="dpt">实验室园区</div>
+      <div class="dpbtn">
+        <span id="btn_refresh" title="刷新数据"
+          ><svg role="img"><use xlink:href="imgs/vimg.svg#ni_refresh"></use></svg
+        ></span>
+      </div>
+      <div class="ifwarp">
+        <iframe class="dpif" id="dpf"></iframe>
+      </div>
+    </div>
+
+    <div class="dpwarp camera" id="dcamera">
+      <div class="dptitle">
+        <span id="dct"></span>
+        <div class="scl">
+          <div class="active">摄像头1</div>
+          <div>摄像头2</div>
+          <div>摄像头3</div>
+          <div>摄像头4</div>
+          <div>摄像头5</div>
+        </div>
+      </div>
+      <div class="dpbtn">
+        <span id="btn_close" title="关闭面板"
+          ><svg role="img"><use xlink:href="imgs/vimg.svg#ni_close"></use></svg
+        ></span>
+      </div>
+      <img src="imgs/camera.jpg" class="ca" />
+    </div>
+
+    <div id="ftbox">
+      <div class="s">园区东门</div>
+      <div class="s">园区北门</div>
+      <div>
+        熊猫智慧水务园坐落于上海市青浦区松秋路与盈港东路交汇处，园区内由三个建筑物组成，智慧水务实验基地、自动化集成生产车间、迪纳声水表生产车间。园区占地面积150亩，园区内绿化面积达70%，划分工作区、生活区、实验区、生产车间。
+      </div>
+      <div>
+        整个车间占地三万多平方米，现目前主要生产迪纳声系列水表，主要分为自动化生产车间、组装线车间、标准件及原材料仓库，设备出厂检测中心。
+      </div>
+      <div>
+        车间占地三万多平米，现目前主要是生产智慧集成泵站、智慧调峰泵站，等集成主要供水设备，车间主要分为自动生产连线、组装线、标准件及原材料仓库，设备出厂检测中心，生产运维管理中心。
+      </div>
+      <div>
+        实践基地大楼是智慧水务园区内的主要建筑之一，采用中式建筑风格于2018年建设而成，共7层。大楼内置停车场、餐厅、宿舍、办公室，集生活、工作于一体。
+      </div>
+      <div>池内种植植物， 对池水起净化沉淀作用，水池面积4.02平方米，有效深度1米，设计容积403m³。</div>
+      <div>
+        池内种植大量芦苇，利用植物、鱼类、微生物对河水进行净化，水池面积24.88平方米，有效深度1.5米，设计容积3700m³。
+      </div>
+      <div class="s">园区西门</div>
+      <div><span>池水提升泵房</span></div>
+      <div>
+        <span>A-00净水系统</span
+        >通过一套集成净水设备模拟水厂制水工艺过程，利用远程智能化监控系统，对设备净水各环节运行状态时时监控，实现无人值守、全自动运行。
+      </div>
+      <div>
+        <span>A-01集成(C)型</span
+        >通过云端人工智能引擎实时分析全网各个节点、各个时段动态的用水需求，精准调控设备出口压力与流量，达成全网能耗最低、漏耗最低、压力波动最小、电费成本最少的供水运行格局。
+      </div>
+      <div><span>A-03集成(B)型</span>稳定保证高层楼宇的用水体验，使其供水不受管网压力波动的影响。</div>
+      <div><span>A-04集成(A)型</span>传统箱式设备进水只关乎本水箱水位和前端压力，不关注其时间段。</div>
+      <div><span>A-06AAD(B)型</span>供水管网来水压力变化的处理与分析实验、调峰泵站对直供区的影响实验。</div>
+      <div><span>A-07AAD(D)型</span>MPC控制模式演示实验、用水模式识别实验。</div>
+      <div><span>A-08AAD(B)型</span>每立方水耗电实验、大小泵组合式供水调节实验。</div>
+      <div>
+        <span>B-00AAD(C)型</span
+        >补充供水使用在城市人口的密集区域，设在城外的水厂通过管道往城市中心区供水时经过重重阻隔，在用水高峰时间段，城中部分用水密集区将出现供水不足，形成压力低洼区。
+      </div>
+      <div>
+        <span>B-02AAD(A)型</span
+        >通过对供水区域内用水流量的分析，形成区域用水规律，利用人工智能的精准计算预判不同时间段的用水需求量，从按需供给的角度确保末梢最不利点的压力稳定，实现供水能耗最优是预测调峰的关键所在。
+      </div>
+      <div>
+        <span>B-03AAD(B)型</span
+        >城市供水往往通过变频恒压的机制来保证设备出口端压力，此机制下势必导致能耗并非最优，末梢用户用水体验不佳的情况发生。硬件调峰系统通过对供水区域内用水流量的分析，形成区域用水规律，利用调峰装置与水泵的智能化联动控制，从按需供给角度，确保末梢最不利点的压力稳定，实现供水能耗最优是预测调峰的关键所在。
+      </div>
+      <div>
+        <span>B-04AAD(A)型</span
+        >管网上存在许多大用户，如商业区、工厂、医院等，它们的用水模式各不相同，通过本实验展示调峰泵站匹配各种不同的用水模式。
+      </div>
+      <div>
+        <span>B-05AAD(A)型</span
+        >医院与学校是重要的公共场所，其用水可靠性需要得到保障，通过对比分析直供与调峰泵站供水对可靠性的提高。
+      </div>
+      <div>
+        <span>B-06AAD(A)型</span
+        >供水管网来水压力的波动会造成传统的箱式变频设备的抖动，MPC控制通过预测算法能够不受压力波动的影响。
+      </div>
+      <div>
+        <span>B-07AAD(A)型</span>箱式变频设备的水箱进水机制主要依赖、通过本实验验证设备进水机制和保护机制的合理性。
+      </div>
+      <div>
+        <span>D-00集成(D)型</span
+        >通过在同一供水工况下不同品牌水泵性能的对比，利用实时运行参数、瞬时吨水能耗、运行噪音、运行温度等数据，直观感受不同水泵之间表现的差异。
+      </div>
+      <div>
+        <span>D-03AAD(B)型</span
+        >通过集成加压泵站与调峰泵站相结合的形式增压，能最大程度利用管网余压，达到最优加压效果，在满足末梢用户的用量需求的同时保证全线管网的压力平稳，从而降漏降耗。
+      </div>
+      <div>
+        <span>E-01集成(B)型</span
+        >在区域供水场景下，当高峰时直接使用加压设备对区域进行增压称之为“遇峰直增”，对原本流量压力已经非常紧张的供水管网无疑是雪上加霜。此实验将演示遇峰直增供水模式对管网前端用水区域压力所产生的负面影响。
+      </div>
+      <div>
+        <span>E-03AAD(A)型</span
+        >在供水水压和流量相对充足的供水区域，使用罐式设备可利用管网原有压力进行叠压增压，具有高效节能的供水特点。但当市政管网来水压力波动较大、流量不稳定时，罐式叠压设备便显露其局限性。本实验将演示在压力低洼区使用罐式设备所带来的各类问题。
+      </div>
+      <div><span>E-04集成(A)型</span>用人工智能的自适应机制不断优化供水控制模式，实现全网调峰。</div>
+      <div><span>河水提升泵房</span></div>
+      <div><span>新泵房</span>稳定保证高层楼宇的用水体验，使其供水不受管网压力波动的影响。</div>
+      <div><span>G区</span>用人工智能的自适应机制不断优化供水控制模式，实现全网调峰。</div>
+      <div><span>A区</span>用人工智能的自适应机制不断优化供水控制模式，实现全网调峰。</div>
+      <div><span>B区</span>用人工智能的自适应机制不断优化供水控制模式，实现全网调峰。</div>
+      <div><span>D区</span>用人工智能的自适应机制不断优化供水控制模式，实现全网调峰。</div>
+      <div><span>E区</span>用人工智能的自适应机制不断优化供水控制模式，实现全网调峰。</div>
+      <div><span>F区</span>用人工智能的自适应机制不断优化供水控制模式，实现全网调峰。</div>
+      <div class="s">视频监控单元1</div>
+      <div class="s">视频监控单元2</div>
+      <div class="s">视频监控单元3</div>
+      <div class="s">视频监控单元4</div>
+      <div class="s">视频监控单元5</div>
+      <div class="s">视频监控单元6</div>
+      <div class="s">视频监控单元7</div>
+      <div class="s">视频监控单元8</div>
+      <div class="s">视频监控单元9</div>
+      <div class="s">视频监控单元10</div>
+      <div class="s">视频监控单元11</div>
+      <div class="s">视频监控单元12</div>
+    </div>
+
+    <div class="pp">
+      <div class="dptitle">自定义漫游路径</div>
+      <div class="dpbtn">
+        <span title="关闭"
+          ><svg role="img"><use xlink:href="imgs/vimg.svg#ni_close"></use></svg
+        ></span>
+      </div>
+      <div class="ifwarp"></div>
+      <div class="tt">
+        <div class="ttt">漫游类型</div>
+        <div class="ty">
+          <span class="active">步行</span>
+          <span>飞行</span>
+        </div>
+        <div title="开始创建漫游路径" class="ts">+</div>
+      </div>
+      <ul class="pl"></ul>
+      <div class="pc">
+        <div class="tl">漫游控制</div>
+        <div class="td">
+          漫游速度:
+          <select>
+            <option value="0">较慢</option>
+            <option value="1">慢</option>
+            <option value="2" selected>中等</option>
+            <option value="3">快</option>
+            <option value="4">较快</option>
+          </select>
+        </div>
+        <input type="range" min="1" max="100" value="1" class="pbar" />
+      </div>
+      <div class="pb p2">
+        <div id="pbtn_start" class="disable">漫游</div>
+        <div id="pbtn_pause" class="disable">暂停</div>
+        <div id="pbtn_stop" class="disable red">停止</div>
+      </div>
+    </div>
+
+    <div class="ptip"></div>
+
+    <script src="js/webgl/three.min.js"></script>
+    <script src="js/webgl/SceneUtils.js"></script>
+    <script src="js/webgl/Detector.js"></script>
+    <script src="js/webgl/OrbitControls.js"></script>
+    <script src="js/webgl/OBJLoader.js"></script>
+    <script src="js/webgl/MTLLoader.js"></script>
+    <script src="js/webgl/UniformsUtils.js"></script>
+    <script src="js/webgl/tween.min.js"></script>
+    <script src="js/webgl/WaterShader.js"></script>
+    <script src="js/roaming.js"></script>
+    <script src="js/run.js"></script>
+  </body>
+</html>
