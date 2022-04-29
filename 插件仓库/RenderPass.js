@@ -3,7 +3,7 @@
  */
 
 
-import { Pass } from "../jslib/Pass.js";
+import { Pass } from "./Pass.js";
 
 var RenderPass = function ( scene, camera, overrideMaterial, clearColor, clearAlpha ) {
 
